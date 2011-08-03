@@ -1,0 +1,13 @@
+# Test data
+
+Woman("Soma BG"):
+    name:					"Soma BG"
+	husbandName:			"Kader Mia"
+	sectorId:				181
+	hhId:					6039
+	mauzaName:				"Khorda MaliBari"
+	tiPinCd:				35
+	urinePositiveWeek:		10
+	lmp:					2011-08-03
+
+	
