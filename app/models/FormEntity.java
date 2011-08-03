@@ -11,4 +11,9 @@ import java.util.*;
 public class FormEntity extends Model implements Event {
 	public Date start;
 	public Long validity;
+	
+	public List<Form> getNextForm()
+	{
+		
+	}	
 }
