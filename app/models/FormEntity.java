@@ -10,14 +10,17 @@ import java.util.*;
 @Table(name = "form_entity")
 public class FormEntity extends Model implements Event {
 	public Date start;
-	
+
 	@ManyToOne
 	public Form form;
 	@ManyToOne
 	public Woman women;
 
 	public FormEntity() {
-		
-	}
 
+	}
+	
+	public void generateEvent() {
+	
+	}
 }
