@@ -18,6 +18,7 @@ public class Woman extends Model {
 	public Long acArea;
 	public Long urinePositiveWeek;
 	public Date lmp;
+	public Short status;
 	
 	public Woman(String name, String husbandName, Long sectorId, Long hhId) {
 		this.name = name;
