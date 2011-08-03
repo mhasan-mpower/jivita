@@ -7,8 +7,17 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name="form_entity")
+@Table(name = "form_entity")
 public class FormEntity extends Model implements Event {
 	public Date start;
-	public Long validity;
+	
+	@ManyToOne
+	public Form form;
+	@ManyToOne
+	public Woman women;
+
+	public FormEntity() {
+		
+	}
+
 }
