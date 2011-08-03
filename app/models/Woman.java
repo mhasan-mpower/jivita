@@ -15,6 +15,7 @@ public class Woman extends Model {
 	public Long hhId;
 	public String mauzaName;
 	public Long tiPinCd;
+	public Long acArea;
 	public Long urinePositiveWeek;
 	public Date lmp;
 	
