@@ -10,7 +10,7 @@ public class Bootstrap extends Job {
     public void doJob() {
         // Check if the database is empty
         if(Woman.count() == 0) {
-            Fixtures.load("initial-data.yml");
+            Fixtures.loadYaml("initial-data.yml");
         }
     }
  
