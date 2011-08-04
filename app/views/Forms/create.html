@@ -1,0 +1,28 @@
+#{extends 'main.html' /}
+#{set title:'New Form' /}
+
+<h1>New Form</h1>
+
+<div class="grid_6 alpha">
+#{form @submit()}
+    #{field 'form.name'}
+        <p class="${field.errorClass} row">
+            <label for="${field.name}">Name:</label>
+            <input class="input_full" type="text" id="${field.name}" name="${field.name}" size="16" value="${form?.name}">
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+    #{field 'form.shortName'}
+        <p class="${field.errorClass} row">
+            <label for="${field.name}">Short Name:</label>
+            <input class="input_full" type="text" id="${field.name}" name="${field.name}" size="16" value="${form?.shortName}">
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+   
+    <p class="buttons">
+        <input type="submit" value="Save Form">
+    </p>
+#{/form}
+</div>

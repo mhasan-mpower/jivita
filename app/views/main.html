@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <title>#{get 'title' /}</title>
@@ -7,21 +6,25 @@
         <link rel="stylesheet" media="screen" href="@{'/public/css/reset.css'}">
         <link rel="stylesheet" media="screen" href="@{'/public/css/960.css'}">
         <link rel="stylesheet" media="screen" href="@{'/public/css/text.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/css/formalize.css'}">
+        <link rel="stylesheet" media="screen" href="@{'/public/css/main.css'}">
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-        <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/js/jquery-1.5.2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/js/jquery.formalize.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         #{get 'moreScripts' /}
     </head>
     <body>
 	    <div class="container_12">
-			<div class="grid_3">
+			<div class="grid_3 leftSideBar">
+			<h1 class="logo">mPower Health</h1>
 			 <ul>
-			     <li><a href="#">Home</a></li>
-			     <li><a href="#">Forms</a></li>
-			     <li><a href="#">New Form</a></li>
+			     <li><a href="@{Application.index()}">Home</a></li>
+			     <li><a href="@{Forms.list()}">Forms</a></li>
+			     <li><a href="@{Forms.create()}">New Form</a></li>
 			 </ul>
 			</div>
-			<div class="grid_9">I'm 3/4 wide</div>
+			<div class="grid_9 main">#{doLayout/}</div>
 		</div>
     </body>
 </html>
