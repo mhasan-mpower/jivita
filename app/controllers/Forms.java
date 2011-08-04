@@ -8,13 +8,11 @@ import models.*;
 import java.util.*;
 
 
-
 public class Forms extends Controller {
     
     public static void index() {
     
     }
-    
     
     public static void list() {
     
@@ -22,12 +20,10 @@ public class Forms extends Controller {
         render(forms);
     }
     
-    
     public static void create() {
     
         render();
     }
-    
     
     public static void submit(@Valid Form form) {
     
