@@ -7,7 +7,6 @@ import play.test.*;
 import models.*;
 
 
-
 @OnApplicationStart
 public class Bootstrap extends Job {
     
