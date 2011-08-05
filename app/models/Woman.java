@@ -81,11 +81,10 @@ public class Woman extends Model {
         
     }
     
-    public void afterSave() {
+    @PostPersist
+    void afterInsert() {
     
-        // Assume that the woman is pregnant and also has given consent
-        Form pef = Form.find("byShortName", "PEF").first();
-        System.out.println(pef.name);
+        Form pef = Form.find("shortName", "PEF").first();
         new FormEntity(new Date(), pef, this).save();
     }
 }

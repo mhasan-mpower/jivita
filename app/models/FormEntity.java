@@ -14,11 +14,14 @@ public class FormEntity extends Model implements Event {
     
     @Required
     public Date  start;
+    
     public Short status = 0;
     
-    @ManyToOne
+    @ManyToOne(cascade = { CascadeType.ALL })
     public Form  form;
-    @ManyToOne
+    
+    @Required
+    @ManyToOne(cascade = { CascadeType.ALL })
     public Woman women;
     
     public FormEntity(Date start, Form form, Woman woman) {
