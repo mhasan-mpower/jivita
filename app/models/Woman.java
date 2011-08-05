@@ -1,6 +1,7 @@
 package models;
 
 import play.*;
+import play.data.validation.*;
 import play.db.jpa.*;
 
 import javax.persistence.*;
@@ -14,15 +15,23 @@ import java.util.*;
 public class Woman extends Model {
     
     /** The woman name. */
+    @Required
     public String name;
     
+    /** The woman's unique ID. */
+    @Required
+    public Long   UID;
+    
     /** The woman's husband name. */
+    @Required
     public String husbandName;
     
     /** The sector ID. */
+    @Required
     public Long   sectorId;
     
     /** The house hold ID. */
+    @Required
     public Long   hhId;
     
     /** The mauza name. */
@@ -43,9 +52,14 @@ public class Woman extends Model {
     /** The status. */
     public Short  status;
     
+    /** Registration Date. */
+    public Date   registered;
+    
     /**
      * The Constructor.
      * 
+     * @param UID
+     *            the woman's unique ID
      * @param name
      *            the name
      * @param husbandName
@@ -55,12 +69,23 @@ public class Woman extends Model {
      * @param hhId
      *            the house hold ID
      */
-    public Woman(String name, String husbandName, Long sectorId, Long hhId) {
+    public Woman(Long UID, String name, String husbandName, Long sectorId,
+            Long hhId) {
     
+        this.UID = UID;
         this.name = name;
         this.husbandName = husbandName;
         this.sectorId = sectorId;
         this.hhId = hhId;
+        this.registered = new Date();
+        
     }
     
+    public void afterSave() {
+    
+        // Assume that the woman is pregnant and also has given consent
+        Form pef = Form.find("byShortName", "PEF").first();
+        System.out.println(pef.name);
+        new FormEntity(new Date(), pef, this).save();
+    }
 }

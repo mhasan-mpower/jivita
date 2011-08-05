@@ -9,4 +9,5 @@ import java.util.*;
 
 public interface Event {
     
+    public void execute();
 }
