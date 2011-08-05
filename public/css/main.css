@@ -15,8 +15,11 @@ h1.logo {
     color: #e22;
     margin-top: 5px;
     display: none;
+    font-size: 85%;
 }
 .hasError .error {
     display: block;
 }
-
+.mute {
+    color: #bbb;
+}

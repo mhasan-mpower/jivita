@@ -2,6 +2,9 @@
 #{set title:'Forms' /}
 
 <h1>Forms</h1>
+
+<ol>
 #{list items:forms, as:'form'}
-    ${form.name}
+    <li><a href="@{Forms.view(form.id)}">${form.name}</a></li>
 #{/list}
+</ol>

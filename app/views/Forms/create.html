@@ -7,20 +7,66 @@
 #{form @submit()}
     #{field 'form.name'}
         <p class="${field.errorClass} row">
-            <label for="${field.name}">Name:</label>
+            <label for="${field.name}">Name</label>
             <input class="input_full" type="text" id="${field.name}" name="${field.name}" size="16" value="${form?.name}">
             <span class="error">${field.error}</span>
         </p>
     #{/field}
     
+    <div>
     #{field 'form.shortName'}
-        <p class="${field.errorClass} row">
-            <label for="${field.name}">Short Name:</label>
+        <p class="${field.errorClass} row grid_3 alpha">
+            <label for="${field.name}">Short Name</label>
             <input class="input_full" type="text" id="${field.name}" name="${field.name}" size="16" value="${form?.shortName}">
             <span class="error">${field.error}</span>
         </p>
     #{/field}
    
+   #{field 'form.validity'}
+        <p class="${field.errorClass} row grid_3 omega">
+            <label for="${field.name}">Validity <span class="mute">(days)</span></label>
+            <input class="input_full" type="text" id="${field.name}" name="${field.name}" size="16" value="${form?.validity}">
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+        <div class="clear"></div>
+    </div>
+    
+    #{field 'form.ifInvalid'}
+        <p class="${field.errorClass} row">
+            <label for="${field.name}">If this form is <strong>Invalid</strong> then goto</label>
+            #{select "${field.name}", items:forms, labelProperty:'shortName' /}
+        </p>
+    #{/field}
+    
+    #{field 'form.ifAlive'}
+        <p class="${field.errorClass} row">
+            <label for="${field.name}">If outcome is <strong>Alive</strong> then goto</label>
+            #{select "${field.name}", items:forms, labelProperty:'shortName' /}
+        </p>
+    #{/field}
+    
+    #{field 'form.ifLiveBirth'}
+        <p class="${field.errorClass} row">
+            <label for="${field.name}">If outcome is <strong>Live Birth</strong> then goto</label>
+            #{select "${field.name}", items:forms, labelProperty:'shortName' /}
+        </p>
+    #{/field}
+    
+    #{field 'form.ifStillBirth'}
+        <p class="${field.errorClass} row">
+            <label for="${field.name}">If outcome is <strong>Still Birth</strong> then goto</label>
+            #{select "${field.name}", items:forms, labelProperty:'shortName' /}
+        </p>
+    #{/field}
+    
+    #{field 'form.ifDead'}
+        <p class="${field.errorClass} row">
+            <label for="${field.name}">If outcome is <strong>Dead</strong> then goto</label>
+            #{select "${field.name}", items:forms, labelProperty:'shortName' /}
+        </p>
+    #{/field}    
+    
     <p class="buttons">
         <input type="submit" value="Save Form">
     </p>

@@ -14,6 +14,16 @@ public class Forms extends Controller {
     
     }
     
+    public static void view(Long id) {
+    
+        Form form = Form.findById(id);
+        render(form);
+    }
+    
+    public static void edit(Long id) {
+    
+    }
+    
     public static void list() {
     
         List<Form> forms = Form.findAll();
@@ -22,13 +32,17 @@ public class Forms extends Controller {
     
     public static void create() {
     
-        render();
+        List<Form> forms = Form.findAll();
+        forms.add(0, new Form("Not Applicable"));
+        render(forms);
     }
     
     public static void submit(@Valid Form form) {
     
         if (validation.hasErrors()) {
-            render("@create", form);
+            List<Form> forms = Form.findAll();
+            forms.add(0, new Form("Not Applicable"));
+            render("@create", form, forms);
         }
         form.create();
         Application.index();
