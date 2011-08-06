@@ -41,3 +41,12 @@ th {
 .full {
     width: 100%;
 }
+.noBorder td {
+    border: 0;
+}
+.padRight40 {
+    padding-right: 40px;
+}
+.noBorder td:first-child {
+    font-weight: bold;
+}
