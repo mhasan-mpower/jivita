@@ -13,9 +13,9 @@
 	</tr>
 	#{list items:events, as:'event'}
 	<tr>
-        <td>${event.start}</td>
-        <td>${event.woman.sectorId}</td>
-        <td>${event.woman.hhId}</td>
+        <td>${event.start.format("dd MMMM yyyy")}</td>
+        <td class="aRight">${event.woman.sectorId}</td>
+        <td class="aRight">${event.woman.hhId}</td>
         <td>${event.woman.name}</td>
         <td>${event.form.name}</td>
         
