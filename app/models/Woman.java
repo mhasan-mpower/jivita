@@ -81,10 +81,24 @@ public class Woman extends Model {
         
     }
     
-    @PostPersist
-    void afterInsert() {
+    /*
+     * @PostPersist void afterInsert() {
+     * 
+     * Form pef = Form.find("shortName", "PEF").first(); new FormEntity(new
+     * Date(), pef, this).save(); }
+     */
     
+    @Override
+    public void _save() {
+    
+        super._save();
+        
         Form pef = Form.find("shortName", "PEF").first();
+        Form ses = Form.find("shortName", "SES").first();
+        
         new FormEntity(new Date(), pef, this).save();
+        new FormEntity(new Date(), ses, this).save();
+        
     }
+    
 }

@@ -17,6 +17,7 @@ public class FormEntity extends Model implements Event {
     
     public Short status = 0;
     
+    @Required
     @ManyToOne(cascade = { CascadeType.ALL })
     public Form  form;
     
