@@ -3,8 +3,25 @@
 
 <h1>Forms</h1>
 
-<ol>
-#{list items:forms, as:'form'}
-    <li><a href="@{Forms.view(form.id)}">${form.name}</a></li>
-#{/list}
-</ol>
+<table class="full">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Short Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+    <thead>
+    <tbody>
+        #{list items:forms, as:'form'}
+        <tr>
+            <td class="aRight">${form.id}</td>
+            <td>${form.name}</td>
+            <td>${form.shortName}</td>
+            <td class="center"><a href="@{Forms.view(form.id)}">VIEW</a></td>
+            <td class="center">EDIT</td>
+        </tr>
+        #{/list}
+    <tbody>
+</table>

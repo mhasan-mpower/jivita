@@ -1,8 +1,22 @@
+a {
+    color: #719744;
+    text-decoration: none;
+}
 .leftSideBar {
-    background: #e2e2e2;
+    background: #2c4762;
+    padding-top: 20px;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+}
+.main {
+    padding-top: 20px;
+    margin-left: 260px;
 }
 h1.logo {
     text-align: center;
+    color: #719744;
+    text-shadow: 2px 2px 2px #395875;
 }
 .row label {
     display: block;
@@ -24,7 +38,7 @@ h1.logo {
     color: #bbb;
 }
 table {
-    margin: 20px 0;
+    margin: 10px 0;
 }
 td, th {
     padding: 5px 10px;
@@ -49,4 +63,41 @@ th {
 }
 .noBorder td:first-child {
     font-weight: bold;
+}
+.center {
+    text-align: center;
+}
+/* Menu */
+.menu {
+    list-style: none inside;
+    padding: 0 20px;
+}
+.menu li {
+    margin-left: 0;
+}
+.menu a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #f2f2f2;
+}
+.menu a:hover {
+    color: #719744;
+}
+table a {
+    font-size: 12px;
+    font-weight: bold;
+}
+h1, h2, h3 {
+    color: #395875;
+}
+h1 {
+    border-bottom: 1px solid #395875;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 2px #f2f2f2;
+}
+.mb0 {
+    margin-bottom: 0;
+}
+input[type="text"] {
+    width: 100%;
 }
