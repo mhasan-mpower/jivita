@@ -72,6 +72,7 @@ public class FormEntity extends Model {
                 new FormEntity(this.start, now.getTime(), this.form, this.woman).save();
             }
             else {
+                this.done = true;
                 Form nextForm = Form.findById(this.form.ifInvalid);
                 new FormEntity(now.getTime(), nextForm, this.woman).save();
             }

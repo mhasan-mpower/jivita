@@ -3,7 +3,12 @@
 
 <h1>Schedule</h1>
 
-<table>
+<div class="aRight">
+    <label for="sectorId">Filter by Sector ID</label>
+    #{select 'sectorId', 'items':sectors /}
+</div>
+
+<table class="full">
 	<tr>
 	    <th>Date</th>
         <th>Sector ID</th>

@@ -12,8 +12,12 @@ public class Application extends Controller {
     
     public static void index() {
     
+        List<String> sectors = Woman.find("SELECT DISTINCT w.sectorId AS id FROM Woman w").fetch();
+        Collections.sort(sectors);
+        sectors.add(0, "All");
+        
         List<FormEntity> events = FormEntity.find("scheduled >= ?", new Date()).fetch();
-        render(events);
+        render(events, sectors);
     }
     
     public static void update(Long form_id, Short status) {

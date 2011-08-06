@@ -17,29 +17,29 @@ public class Form extends Model {
     
     /** The Form Name. */
     @Required
-    public String name;
+    public String  name;
     
     /** The Form Short name. */
     @Required
-    public String shortName;
+    public String  shortName;
     
     /** The Validity of the form in days. */
-    public int    validity;
+    public Integer validity;
     
     /** If this form is invalid or expired then goto form with id ifInvalid. */
-    public long   ifInvalid;
+    public Long    ifInvalid;
     
     /** If outcome is still birth then goto form with id ifStillBirth. */
-    public long   ifStillBirth;
+    public Long    ifStillBirth;
     
     /** If outcome is live birth then goto form with id ifStillBirth. */
-    public long   ifLiveBirth;
+    public Long    ifLiveBirth;
     
     /** If outcome is dead then goto form with id ifDead. */
-    public long   ifDead;
+    public Long    ifDead;
     
     /** If outcome is alive then goto form with id ifAlive. */
-    public long   ifAlive;
+    public Long    ifAlive;
     
     /**
      * The Constructor.
