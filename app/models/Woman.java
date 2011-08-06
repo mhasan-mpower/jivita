@@ -80,8 +80,8 @@ public class Woman extends Model {
         
     }
     
-    @PostPersist
-    void afterInsert() {
+    @PrePersist
+    void beforeInsert() {
     
         if (this.registered == null) {
             this.registered = new Date();
