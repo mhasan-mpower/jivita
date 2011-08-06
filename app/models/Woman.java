@@ -53,7 +53,8 @@ public class Woman extends Model {
     public Short  status;
     
     /** Registration Date. */
-    public Date   registered;
+    public Date   registered = new Date();
+    
     
     /**
      * The Constructor.
@@ -78,14 +79,6 @@ public class Woman extends Model {
         this.sectorId = sectorId;
         this.hhId = hhId;
         
-    }
-    
-    @PrePersist
-    void beforeInsert() {
-    
-        if (this.registered == null) {
-            this.registered = new Date();
-        }
     }
     
     @Override
