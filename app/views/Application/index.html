@@ -5,24 +5,22 @@
 
 <div class="aRight">
     <label for="sectorId">Filter by Sector ID</label>
-    #{select 'sectorId', 'items':sectors /}
+    #{select 'sectorId', 'items':sectors, id:'sectorId' /}
 </div>
 
-<table class="full">
-	<tr>
-	    <th>Date</th>
-        <th>Sector ID</th>
-	    <th>HHID</th>
-	    <th>Name</th>
-	    <th>Form</th>
-	</tr>
-	#{list items:events, as:'event'}
-	<tr>
-        <td>${event.start.format("dd MMMM yyyy")}</td>
-        <td class="aRight">${event.woman.sectorId}</td>
-        <td class="aRight">${event.woman.hhId}</td>
-        <td>${event.woman.name}</td>
-        <td>${event.form.name}</td>
-    </tr>
-	#{/list}
-</table>
+<div class="data">#{table events:events /}</div>
+
+<script type="text/javascript">
+	$(function(){
+	    $('#sectorId').change(function(){
+			var id = $(this).val();
+			$.post('@{filter()}', {id: id}, function(data){
+                if(data) {
+                    $('.data').slideUp(function(){
+                        $('.data').html(data).slideDown();
+                    });
+                }
+            });
+	    }) 
+	});
+</script>
