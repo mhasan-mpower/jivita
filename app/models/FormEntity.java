@@ -23,13 +23,13 @@ public class FormEntity extends Model implements Event {
     
     @Required
     @ManyToOne(cascade = { CascadeType.ALL })
-    public Woman women;
+    public Woman woman;
     
     public FormEntity(Date start, Form form, Woman woman) {
     
         this.start = start;
         this.form = form;
-        this.women = woman;
+        this.woman = woman;
     }
     
     public void execute() {

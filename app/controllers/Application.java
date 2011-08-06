@@ -12,7 +12,8 @@ public class Application extends Controller {
     
     public static void index() {
     
-        render();
+        List<Event> events = FormEntity.find("start > ?", new Date()).fetch();
+        render(events);
     }
     
     public static void updateStatus() {

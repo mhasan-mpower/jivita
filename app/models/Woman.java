@@ -77,16 +77,16 @@ public class Woman extends Model {
         this.husbandName = husbandName;
         this.sectorId = sectorId;
         this.hhId = hhId;
-        this.registered = new Date();
         
     }
     
-    /*
-     * @PostPersist void afterInsert() {
-     * 
-     * Form pef = Form.find("shortName", "PEF").first(); new FormEntity(new
-     * Date(), pef, this).save(); }
-     */
+    @PostPersist
+    void afterInsert() {
+    
+        if (this.registered == null) {
+            this.registered = new Date();
+        }
+    }
     
     @Override
     public void _save() {
@@ -96,8 +96,11 @@ public class Woman extends Model {
         Form pef = Form.find("shortName", "PEF").first();
         Form ses = Form.find("shortName", "SES").first();
         
-        new FormEntity(new Date(), pef, this).save();
-        new FormEntity(new Date(), ses, this).save();
+        Calendar newDate = Calendar.getInstance();
+        newDate.add(Calendar.DATE, 7);
+        
+        new FormEntity(newDate.getTime(), pef, this).save();
+        new FormEntity(newDate.getTime(), ses, this).save();
         
     }
     

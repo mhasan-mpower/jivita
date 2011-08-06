@@ -3,3 +3,22 @@
 
 <h1>Schedule</h1>
 
+<table>
+	<tr>
+	    <th>Date</th>
+        <th>Sector ID</th>
+	    <th>HHID</th>
+	    <th>Name</th>
+	    <th>Form</th>
+	</tr>
+	#{list items:events, as:'event'}
+	<tr>
+        <td>${event.start}</td>
+        <td>${event.woman.sectorId}</td>
+        <td>${event.woman.hhId}</td>
+        <td>${event.woman.name}</td>
+        <td>${event.form.name}</td>
+        
+    </tr>
+	#{/list}
+</table>

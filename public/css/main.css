@@ -23,3 +23,12 @@ h1.logo {
 .mute {
     color: #bbb;
 }
+td, th {
+    padding: 5px 10px;
+    border: 1px solid #eee;
+}
+th {
+    font-weight: bold;
+    border: 1px solid #ccc;
+    background: #f2f2f2;
+}
