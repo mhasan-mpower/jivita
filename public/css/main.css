@@ -125,3 +125,6 @@ input[type="text"] {
 td {
     vertical-align: baseline;
 }
+.hidden {
+    display: none;
+}

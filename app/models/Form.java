@@ -38,7 +38,7 @@ public class Form extends Model {
     public int         autoCreateAfter = 7;
     
     /** The auto create event. */
-    public Outcome     autoCreateEvent;
+    public Trigger     autoCreateEvent;
     
     @OneToMany(mappedBy = "form", cascade = CascadeType.ALL)
     public List<Logic> logics;

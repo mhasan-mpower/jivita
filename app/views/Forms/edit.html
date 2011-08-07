@@ -37,66 +37,36 @@
     
     #{field 'form.autoCreate'}
         <p class="${field.errorClass} row chkbox">
-            <input type="checkbox" id="${field.name}" name="${field.name}" #{if form.autoCreate}checked#{/if} />
+            <input class="toogleHidden" type="checkbox" id="${field.name}" name="${field.name}" #{if form?.autoCreate}checked#{/if} />
             <label for="${field.name}">Auto create this form</label>
             <span class="error">${field.error}</span>
         </p>
     #{/field}
     
-    #{if form.autoCreate}
-        <div>
-        #{field 'form.autoCreateAfter'}
-            <p class="${field.errorClass} row grid_3 alpha">
-                <label for="${field.name}">Auto create after <span class="mute">(days)</span></label>
-                <input class="input_full" type="text" id="${field.name}" name="${field.name}" size="16" value="${form?.autoCreateAfter}" />
-                <span class="error">${field.error}</span>
-            </p>
-        #{/field}
-       
-            <p class="${field.errorClass} row grid_3 omega">
-                <label for="autoCreateEvent">Invoke with the following event</label>
-                #{select "autoCreateEvent", items:models.Woman.Outcome.values(), id:'autoCreateEvent' /} 
-            </p>
-            <div class="clear">&nbsp;</div>
-        </div>
-    #{/if}
     
-    
-    #{field 'form.ifInvalid'}
-        <p class="${field.errorClass} row">
-            <label for="${field.name}">If this form is <strong>Invalid</strong> then goto</label>
-            #{select "${field.name}", items:forms, labelProperty:'shortName' /}
+    <div#{ifnot form?.autoCreate} class="hidden"#{/ifnot}>
+    #{field 'form.autoCreateAfter'}
+        <p class="${field.errorClass} row grid_3 alpha">
+            <label for="${field.name}">Auto create after <span class="mute">(days)</span></label>
+            <input class="input_full" type="text" id="${field.name}" name="${field.name}" size="16" value="${form?.autoCreateAfter}" />
+            <span class="error">${field.error}</span>
         </p>
     #{/field}
-    
-    #{field 'form.ifAlive'}
-        <p class="${field.errorClass} row">
-            <label for="${field.name}">If outcome is <strong>Alive</strong> then goto</label>
-            #{select "${field.name}", items:forms, labelProperty:'shortName' /}
+   
+    #{field 'form.autoCreateEvent'}
+        <p class="${field.errorClass} row grid_3 omega">
+            <label for="${field.name}">Invoke with the following event</label>
+            <select name="${field.name}" id="${field.name}">
+                <option value="NONE">None</option>
+                <option value="REGISTRATION">Registration</option>
+                <option value="DELIVERY">Delivery</option>
+                <option value="LMP">LMP</option>
+            </select> 
         </p>
+        <div class="clear">&nbsp;</div>
+    </div>
     #{/field}
-    
-    #{field 'form.ifLiveBirth'}
-        <p class="${field.errorClass} row">
-            <label for="${field.name}">If outcome is <strong>Live Birth</strong> then goto</label>
-            #{select "${field.name}", items:forms, labelProperty:'shortName' /}
-        </p>
-    #{/field}
-    
-    #{field 'form.ifStillBirth'}
-        <p class="${field.errorClass} row">
-            <label for="${field.name}">If outcome is <strong>Still Birth</strong> then goto</label>
-            #{select "${field.name}", items:forms, labelProperty:'shortName' /}
-        </p>
-    #{/field}
-    
-    #{field 'form.ifDead'}
-        <p class="${field.errorClass} row">
-            <label for="${field.name}">If outcome is <strong>Dead</strong> then goto</label>
-            #{select "${field.name}", items:forms, labelProperty:'shortName' /}
-        </p>
-    #{/field}    
-    
+   
     <p class="buttons">
         <input type="submit" value="Save Form" />
     </p>

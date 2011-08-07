@@ -13,9 +13,24 @@
         <td>${form.shortName}</td>
     </tr>
     <tr>
-        <td>Validity</td>
-        <td>${form.validity} days</td>
+        <td>Validity <span class="mute">(days)</span></td>
+        <td>${form.validity}</td>
     </tr>
+    #{if form.autoCreate}
+    <tr>
+        <td>Auto Create</td>
+        <td>${form.autoCreate.capFirst()}</td>
+    </tr>
+    <tr>
+        <td>After <span class="mute">(days)</span></td>
+        <td>${form.autoCreateAfter}</td>
+    </tr>
+    <tr>
+        <td>After <span class="mute">(event)</span></td>
+        <td>${form.autoCreateEvent}</td>
+    </tr>
+    
+    #{/if}
 </table>
 
 <h2>Logics</h2>
@@ -124,7 +139,7 @@
         #{field 'duration'}
         <tr>
             <td>
-                <label for="${field.name}">After (days)</label>
+                <label for="${field.name}">After <span class="mute">(days)</span></label>
             </td>
             <td>
                 <input type="text" name="${field.name}" id="${field.name}" value="${duration}" />
@@ -136,11 +151,11 @@
         #{field 'event'}
         <tr>
             <td>
-                <label for="${field.name}">After (event)</label>
+                <label for="${field.name}">After <span class="mute">(event)</span></label>
             </td>
             <td>
                 <select name="${field.name}" id="${field.name}">
-                    <option value="None">None</option>
+                    <option value="NONE">None</option>
                     <option value="REGISTRATION">Registration</option>
                     <option value="DELIVERY">Delivery</option>
                     <option value="LMP">LMP</option>
