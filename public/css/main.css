@@ -101,3 +101,6 @@ h1 {
 input[type="text"] {
     width: 100%;
 }
+.chkbox label {
+    display: inline;
+}

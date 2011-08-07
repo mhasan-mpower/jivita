@@ -14,8 +14,16 @@ import java.util.*;
 @Entity
 public class Woman extends Model {
     
-    static enum Outcome {
-        ALIVE, DEAD, STILL_BIRTH, LIVE_BIRTH, REGISTER
+    public static enum Outcome {
+        ALIVE, DEAD, STILL_BIRTH, LIVE_BIRTH, REGISTER;
+        
+        public String toString() {
+        
+            String output = name().toString();
+            output = output.charAt(0) + output.substring(1).toLowerCase();
+            return output;
+        }
+        
     }
     
     

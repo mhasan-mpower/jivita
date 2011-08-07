@@ -5,10 +5,13 @@
 
 <div class="grid_6 alpha">
 #{form @submit()}
+    
+    <input type="hidden" name="form.id" value="${form.id}" />
+    
     #{field 'form.name'}
         <p class="${field.errorClass} row">
             <label for="${field.name}">Name</label>
-            <input class="input_full" type="text" id="${field.name}" name="${field.name}" size="16" value="${form?.name}">
+            <input class="input_full" type="text" id="${field.name}" name="${field.name}" size="16" value="${form?.name}" />
             <span class="error">${field.error}</span>
         </p>
     #{/field}
@@ -17,7 +20,7 @@
     #{field 'form.shortName'}
         <p class="${field.errorClass} row grid_3 alpha">
             <label for="${field.name}">Short Name</label>
-            <input class="input_full" type="text" id="${field.name}" name="${field.name}" size="16" value="${form?.shortName}">
+            <input class="input_full" type="text" id="${field.name}" name="${field.name}" size="16" value="${form?.shortName}" />
             <span class="error">${field.error}</span>
         </p>
     #{/field}
@@ -25,12 +28,39 @@
    #{field 'form.validity'}
         <p class="${field.errorClass} row grid_3 omega">
             <label for="${field.name}">Validity <span class="mute">(days)</span></label>
-            <input class="input_full" type="text" id="${field.name}" name="${field.name}" size="16" value="${form?.validity}">
+            <input class="input_full" type="text" id="${field.name}" name="${field.name}" size="16" value="${form?.validity}" />
             <span class="error">${field.error}</span>
         </p>
     #{/field}
         <div class="clear">&nbsp;</div>
     </div>
+    
+    #{field 'form.autoCreate'}
+        <p class="${field.errorClass} row chkbox">
+            <input type="checkbox" id="${field.name}" name="${field.name}" #{if form.autoCreate}checked#{/if} />
+            <label for="${field.name}">Auto create this form</label>
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+    #{if form.autoCreate}
+        <div>
+        #{field 'form.autoCreateAfter'}
+            <p class="${field.errorClass} row grid_3 alpha">
+                <label for="${field.name}">Auto create after <span class="mute">(days)</span></label>
+                <input class="input_full" type="text" id="${field.name}" name="${field.name}" size="16" value="${form?.autoCreateAfter}" />
+                <span class="error">${field.error}</span>
+            </p>
+        #{/field}
+       
+            <p class="${field.errorClass} row grid_3 omega">
+                <label for="autoCreateEvent">If this form is <strong>Invalid</strong> then goto</label>
+                #{select "${field.name}", items:outcomes, id:'autoCreateEvent' /} 
+            </p>
+            <div class="clear">&nbsp;</div>
+        </div>
+    #{/if}
+    
     
     #{field 'form.ifInvalid'}
         <p class="${field.errorClass} row">
@@ -68,7 +98,7 @@
     #{/field}    
     
     <p class="buttons">
-        <input type="submit" value="Save Form">
+        <input type="submit" value="Save Form" />
     </p>
 #{/form}
 </div>

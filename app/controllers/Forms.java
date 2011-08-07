@@ -6,6 +6,7 @@ import play.mvc.*;
 
 import models.*;
 import java.util.*;
+import models.Woman.Outcome;
 
 
 public class Forms extends Controller {
@@ -24,9 +25,10 @@ public class Forms extends Controller {
     
         List<Form> forms = Form.findAll();
         forms.add(0, new Form("Not Applicable"));
-        
+        List outcomes = Arrays.asList(Outcome.values());
         Form form = Form.findById(id);
-        render(form, forms);
+        
+        render(form, forms, outcomes);
     }
     
     public static void list() {
