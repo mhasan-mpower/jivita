@@ -25,10 +25,8 @@ public class Forms extends Controller {
     
         List<Form> forms = Form.findAll();
         forms.add(0, new Form("Not Applicable"));
-        List outcomes = Arrays.asList(Outcome.values());
         Form form = Form.findById(id);
-        
-        render(form, forms, outcomes);
+        render(form, forms);
     }
     
     public static void list() {
@@ -46,6 +44,7 @@ public class Forms extends Controller {
     
     public static void submit(@Valid Form form) {
     
+        System.out.println(form.autoCreateEvent);
         if (validation.hasErrors()) {
             List<Form> forms = Form.findAll();
             forms.add(0, new Form("Not Applicable"));

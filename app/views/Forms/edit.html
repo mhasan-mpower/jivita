@@ -54,8 +54,8 @@
         #{/field}
        
             <p class="${field.errorClass} row grid_3 omega">
-                <label for="autoCreateEvent">If this form is <strong>Invalid</strong> then goto</label>
-                #{select "${field.name}", items:outcomes, id:'autoCreateEvent' /} 
+                <label for="autoCreateEvent">Invoke with the following event</label>
+                #{select "autoCreateEvent", items:models.Woman.Outcome.values(), id:'autoCreateEvent' /} 
             </p>
             <div class="clear">&nbsp;</div>
         </div>

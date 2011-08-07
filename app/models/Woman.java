@@ -15,15 +15,7 @@ import java.util.*;
 public class Woman extends Model {
     
     public static enum Outcome {
-        ALIVE, DEAD, STILL_BIRTH, LIVE_BIRTH, REGISTER;
-        
-        public String toString() {
-        
-            String output = name().toString();
-            output = output.charAt(0) + output.substring(1).toLowerCase();
-            return output;
-        }
-        
+        ALIVE, DEAD, STILL_BIRTH, LIVE_BIRTH, REGISTER
     }
     
     
