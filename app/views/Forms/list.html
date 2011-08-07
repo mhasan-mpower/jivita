@@ -20,8 +20,13 @@
             <td>${form.name}</td>
             <td>${form.shortName}</td>
             <td class="center"><a href="@{Forms.view(form.id)}">VIEW</a></td>
-            <td class="center">EDIT</td>
+            <td class="center"><a href="@{Forms.edit(form.id)}">EDIT</a></td>
         </tr>
         #{/list}
+        #{else}
+        <tr>
+            <td colspan="5" class="center">No Form Available</td>
+        </tr>
+        #{/else}
     <tbody>
 </table>

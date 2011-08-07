@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<title>#{get 'title' /}</title>
+	<title>#{get 'title' /}</title>
 	<meta charset="${_response_encoding}">
 	<link rel="stylesheet" media="screen" href="@{'/public/css/reset.css'}">
 	<link rel="stylesheet" media="screen" href="@{'/public/css/960.css'}">
@@ -23,7 +23,12 @@
 				<li><a href="@{Forms.create()}">New Form</a></li>
 			</ul>
 		</div>
-		<div class="grid_9 main">#{doLayout/}</div>
+		<div class="grid_9 main">
+            #{if flash.success}
+			    <p class="success">${flash.success}</p>
+			#{/if}
+			#{doLayout/}
+		</div>
 	</div>
 </body>
 </html>

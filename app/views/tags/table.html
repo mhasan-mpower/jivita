@@ -18,5 +18,10 @@
             <td>${event.form.name}</td>
         </tr>
         #{/list}
+        #{else}
+        <tr>
+            <td colspan="5" class="center">No Schedule Available</td>
+        </tr>
+        #{/else}
     <tbody>
 </table>

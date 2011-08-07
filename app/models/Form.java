@@ -7,6 +7,8 @@ import play.db.jpa.*;
 import javax.persistence.*;
 import java.util.*;
 
+import models.Woman.Outcome;
+
 
 /**
  * The Class Form.
@@ -41,19 +43,15 @@ public class Form extends Model {
     /** If outcome is alive then goto form with id ifAlive. */
     public Long    ifAlive;
     
-    /**
-     * The Constructor.
-     * 
-     * @param name
-     *            the form name
-     * @param shortName
-     *            the form short name
-     */
-    public Form(String name, String shortName) {
+    /** Auto create this this form. */
+    public Boolean autoCreate      = false;
     
-        this.name = name;
-        this.shortName = shortName;
-    }
+    /** Auto create after autoCreateAfter days . */
+    public Integer autoCreateAfter = 7;
+    
+    /** The auto create event. */
+    public Outcome autoCreateEvent;
+    
     
     /**
      * The Constructor.
@@ -64,6 +62,30 @@ public class Form extends Model {
     public Form(String shortName) {
     
         this.shortName = shortName;
+    }
+    
+    /**
+     * The Constructor.
+     * 
+     * @param name
+     *            the form name
+     * @param shortName
+     *            the form short name
+     */
+    public Form(String name, String shortName) {
+    
+        this(shortName);
+        this.name = name;
+    }
+    
+    /**
+     * Invoke.
+     * 
+     * @param outcome
+     *            the outcome
+     */
+    public static void invoke(Outcome outcome) {
+    
     }
     
 }

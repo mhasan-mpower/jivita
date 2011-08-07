@@ -9,11 +9,6 @@ import javax.persistence.*;
 import java.util.*;
 
 
-enum Outcome {
-    ALIVE, DEAD, STILL_BIRTH, LIVE_BIRTH
-}
-
-
 @Entity
 @Table(name = "form_entity")
 public class FormEntity extends Model {

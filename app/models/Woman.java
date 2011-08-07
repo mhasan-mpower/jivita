@@ -14,6 +14,11 @@ import java.util.*;
 @Entity
 public class Woman extends Model {
     
+    static enum Outcome {
+        ALIVE, DEAD, STILL_BIRTH, LIVE_BIRTH, REGISTER
+    }
+    
+    
     /** The woman name. */
     @Required
     public String name;
@@ -70,8 +75,7 @@ public class Woman extends Model {
      * @param hhId
      *            the house hold ID
      */
-    public Woman(Long UID, String name, String husbandName, Long sectorId,
-            Long hhId) {
+    public Woman(Long UID, String name, String husbandName, Long sectorId, Long hhId) {
     
         this.UID = UID;
         this.name = name;
@@ -85,7 +89,9 @@ public class Woman extends Model {
     public void _save() {
     
         super._save();
+        Form.invoke(Outcome.REGISTER);
         
+        /*
         Form pef = Form.find("shortName", "PEF").first();
         Form ses = Form.find("shortName", "SES").first();
         
@@ -94,7 +100,7 @@ public class Woman extends Model {
         
         new FormEntity(newDate.getTime(), pef, this).save();
         new FormEntity(newDate.getTime(), ses, this).save();
-        
+        */
     }
     
 }
