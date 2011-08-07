@@ -8,6 +8,7 @@ a {
     position: absolute;
     bottom: 0;
     top: 0;
+    left: 0;
 }
 .main {
     padding-top: 20px;
@@ -103,4 +104,7 @@ input[type="text"] {
 }
 .chkbox label {
     display: inline;
+}
+.container_12 {
+    position: relative;
 }
