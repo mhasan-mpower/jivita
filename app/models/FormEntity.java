@@ -10,7 +10,6 @@ import java.util.*;
 
 
 @Entity
-@Table(name = "form_entity")
 public class FormEntity extends Model {
     
     @Required
@@ -24,11 +23,11 @@ public class FormEntity extends Model {
     public Boolean done   = false;
     
     @Required
-    @ManyToOne(cascade = { CascadeType.ALL })
+    @ManyToOne(cascade = CascadeType.ALL)
     public Form    form;
     
     @Required
-    @ManyToOne(cascade = { CascadeType.ALL })
+    @ManyToOne(cascade = CascadeType.ALL)
     public Woman   woman;
     
     
@@ -52,28 +51,6 @@ public class FormEntity extends Model {
         Calendar old = Calendar.getInstance();
         old.setTime(this.start);
         
-        // status 1 mean done
-        if (status == 1) {
-            
-        }
-        // status else mean not done
-        else {
-            
-            now.add(Calendar.DATE, 7);
-            old.add(Calendar.DATE, this.form.validity);
-            
-            // check the form validity for next week rescheduling
-            if (this.form.validity != 0 && old.after(now)) {
-                new FormEntity(this.start, now.getTime(), this.form, this.woman).save();
-            }
-            else {
-                this.done = true;
-                Form nextForm = Form.findById(this.form.ifInvalid);
-                new FormEntity(now.getTime(), nextForm, this.woman).save();
-            }
-        }
-        
-        this.status = status;
         this.save();
         
     }

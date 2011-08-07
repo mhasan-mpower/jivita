@@ -15,8 +15,16 @@ import java.util.*;
 public class Woman extends Model {
     
     public static enum Outcome {
-        ALIVE, DEAD, STILL_BIRTH, LIVE_BIRTH, REGISTER
-    }
+        NONE, ALIVE, DEAD, STILL_BIRTH, LIVE_BIRTH
+    };
+    
+    public static enum Trigger {
+        NONE, REGISTRATION, DELIVERY, OUTCOME
+    };
+    
+    public static enum Event {
+        NONE, REGISTRATION, DELIVERY, OUTCOME, LMP
+    };
     
     
     /** The woman name. */
@@ -89,18 +97,7 @@ public class Woman extends Model {
     public void _save() {
     
         super._save();
-        Form.invoke(Outcome.REGISTER);
-        
-        /*
-        Form pef = Form.find("shortName", "PEF").first();
-        Form ses = Form.find("shortName", "SES").first();
-        
-        Calendar newDate = Calendar.getInstance();
-        newDate.add(Calendar.DATE, 7);
-        
-        new FormEntity(newDate.getTime(), pef, this).save();
-        new FormEntity(newDate.getTime(), ses, this).save();
-        */
+        Form.invoke(Trigger.REGISTRATION);
     }
     
 }

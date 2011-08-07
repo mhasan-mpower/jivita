@@ -91,7 +91,7 @@ table a {
 h1, h2, h3 {
     color: #395875;
 }
-h1 {
+h1, h2 {
     border-bottom: 1px solid #395875;
     margin-bottom: 10px;
     text-shadow: 2px 2px 2px #f2f2f2;
@@ -111,3 +111,17 @@ input[type="text"] {
     position: relative;
 }
 */
+.lAdd {
+    margin-top: 20px;
+}
+.lAdd legend {
+    font-size: 20px;
+    font-weight: bold;
+    color: #719744;
+}
+.lAdd select {
+    width: 100%;
+}
+td {
+    vertical-align: baseline;
+}

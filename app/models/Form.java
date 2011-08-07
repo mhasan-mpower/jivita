@@ -5,9 +5,11 @@ import play.data.validation.*;
 import play.db.jpa.*;
 
 import javax.persistence.*;
+
 import java.util.*;
 
-import models.Woman.Outcome;
+import models.Logic.SatusCode;
+import models.Woman.*;
 
 
 /**
@@ -19,38 +21,27 @@ public class Form extends Model {
     
     /** The Form Name. */
     @Required
-    public String  name;
+    public String      name;
     
     /** The Form Short name. */
     @Required
-    public String  shortName;
+    public String      shortName;
     
     /** The Validity of the form in days. */
-    public Integer validity;
-    
-    /** If this form is invalid or expired then goto form with id ifInvalid. */
-    public Long    ifInvalid;
-    
-    /** If outcome is still birth then goto form with id ifStillBirth. */
-    public Long    ifStillBirth;
-    
-    /** If outcome is live birth then goto form with id ifStillBirth. */
-    public Long    ifLiveBirth;
-    
-    /** If outcome is dead then goto form with id ifDead. */
-    public Long    ifDead;
-    
-    /** If outcome is alive then goto form with id ifAlive. */
-    public Long    ifAlive;
+    @Min(0)
+    public int         validity        = 0;
     
     /** Auto create this this form. */
-    public Boolean autoCreate      = false;
+    public Boolean     autoCreate      = false;
     
     /** Auto create after autoCreateAfter days . */
-    public Integer autoCreateAfter = 7;
+    public int         autoCreateAfter = 7;
     
     /** The auto create event. */
-    public Outcome autoCreateEvent;
+    public Outcome     autoCreateEvent;
+    
+    @OneToMany(mappedBy = "form", cascade = CascadeType.ALL)
+    public List<Logic> logics;
     
     
     /**
@@ -61,6 +52,7 @@ public class Form extends Model {
      */
     public Form(String shortName) {
     
+        this.logics = new ArrayList<Logic>();
         this.shortName = shortName;
     }
     
@@ -78,13 +70,15 @@ public class Form extends Model {
         this.name = name;
     }
     
-    /**
-     * Invoke.
-     * 
-     * @param outcome
-     *            the outcome
-     */
-    public static void invoke(Outcome outcome) {
+    public Form addLogic(SatusCode status, Event base, Outcome outcome, Form destination, long duration, Event event) {
+    
+        Logic newLogic = new Logic(this, status, base, outcome, destination, duration, event).save();
+        this.logics.add(newLogic);
+        this.save();
+        return this;
+    }
+    
+    public static void invoke(Trigger trigger) {
     
     }
     

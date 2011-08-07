@@ -32,41 +32,6 @@
         <div class="clear"></div>
     </div>
     
-    #{field 'form.ifInvalid'}
-        <p class="${field.errorClass} row">
-            <label for="${field.name}">If this form is <strong>Invalid</strong> then goto</label>
-            #{select "${field.name}", items:forms, labelProperty:'shortName' /}
-        </p>
-    #{/field}
-    
-    #{field 'form.ifAlive'}
-        <p class="${field.errorClass} row">
-            <label for="${field.name}">If outcome is <strong>Alive</strong> then goto</label>
-            #{select "${field.name}", items:forms, labelProperty:'shortName' /}
-        </p>
-    #{/field}
-    
-    #{field 'form.ifLiveBirth'}
-        <p class="${field.errorClass} row">
-            <label for="${field.name}">If outcome is <strong>Live Birth</strong> then goto</label>
-            #{select "${field.name}", items:forms, labelProperty:'shortName' /}
-        </p>
-    #{/field}
-    
-    #{field 'form.ifStillBirth'}
-        <p class="${field.errorClass} row">
-            <label for="${field.name}">If outcome is <strong>Still Birth</strong> then goto</label>
-            #{select "${field.name}", items:forms, labelProperty:'shortName' /}
-        </p>
-    #{/field}
-    
-    #{field 'form.ifDead'}
-        <p class="${field.errorClass} row">
-            <label for="${field.name}">If outcome is <strong>Dead</strong> then goto</label>
-            #{select "${field.name}", items:forms, labelProperty:'shortName' /}
-        </p>
-    #{/field}    
-    
     <p class="buttons">
         <input type="submit" value="Save Form">
     </p>

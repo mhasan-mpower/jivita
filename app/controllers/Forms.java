@@ -5,7 +5,14 @@ import play.data.validation.*;
 import play.mvc.*;
 
 import models.*;
+
 import java.util.*;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+import models.Logic.SatusCode;
+import models.Woman.Event;
 import models.Woman.Outcome;
 
 
@@ -18,7 +25,8 @@ public class Forms extends Controller {
     public static void view(Long id) {
     
         Form form = Form.findById(id);
-        render(form);
+        List<Form> forms = Form.findAll();
+        render(form, forms);
     }
     
     public static void edit(Long id) {
@@ -52,5 +60,27 @@ public class Forms extends Controller {
         }
         form.save();
         list();
+    }
+    
+    public static void addLogic(Long formId, Logic.SatusCode status, Event base, Outcome outcome, Long destination_id, long duration, Event event) {
+    
+        Form form = Form.findById(formId);
+        
+        // Check
+        System.out.println(status);
+        System.out.println(base);
+        System.out.println(outcome);
+        System.out.println(destination_id);
+        System.out.println(duration);
+        System.out.println(event);
+        
+        if (validation.hasErrors()) {
+            List<Form> forms = Form.findAll();
+            render("@view", form, forms);
+        }
+        
+        Form destination = Form.findById(destination_id);
+        form.addLogic(status, base, outcome, destination, duration, event);
+        view(formId);
     }
 }

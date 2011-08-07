@@ -1,5 +1,67 @@
 # Test data
 
+Form(PEF):
+    name:               "Pregnancy Enrollment Form"
+    shortName:          "PEF"
+    validity:           84
+    
+Form(SES):
+    name:               "Socio-Economic Status Form"
+    shortName:          "SES"
+
+Form(LPF):
+    name:               "Late Pregnancy Form"
+    shortName:          "LPF"
+
+Form(MBAF):
+    name:               "Maternal Birth Assessment Form"
+    shortName:          "MBAF"
+
+Form(IBAF):
+    name:               "Infant Birth Assessment Form"
+    shortName:          "IBAF"
+
+Form(MSBF):
+    name:               "Miscarriage/Still Birth Form"
+    shortName:          "MSBF"
+
+Form(M1MOP):
+    name:               "Maternal 1 Month Post Partum"
+    shortName:          "M1MOP"
+
+Form(I1MOP):
+    name:               "Infant 1 Month Post Partum"
+    shortName:          "I1MOP"
+
+Form(M3MOP):
+    name:               "Maternal 3 Month Post Partum"
+    shortName:          "M3MOP"
+
+Form(I3MOP):
+    name:               "Infant 3 Month Post Partum"
+    shortName:          "I3MOP"
+
+Form(FHF):
+    name:               "Family History Form"
+    shortName:          "FHF"
+
+Form(I6MOP):
+    name:               "Infant 6 Month Post Partum"
+    shortName:          "I6MOP"
+
+Form(I12MOP):
+    name:               "Infant 12 Month Post Partum"
+    shortName:          "I12MOP"
+
+Form(IVAF):
+    name:               "Infant Verbal Autopsy Form"
+    shortName:          "IVAF"
+
+Form(MVAF):
+    name:               "Maternal Verbal Autopsy Form"
+    shortName:          "MVAF"
+
+
 Woman(117):
     UID:                117
     name:               "Soma BG"
