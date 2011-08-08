@@ -5,7 +5,7 @@ a {
 .leftSideBar {
     background: #2c4762;
     padding-top: 20px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     top: 0;
     /*left: 0;*/
@@ -106,7 +106,6 @@ input[type="text"] {
     display: inline;
 }
 /*
-
 .container_12 {
     position: relative;
 }
