@@ -19,7 +19,7 @@ public class Woman extends Model {
         
         public String toString() {
         
-            return name().toUpperCase().charAt(0) + name().substring(1).toLowerCase();
+            return name().toUpperCase().charAt(0) + name().substring(1).toLowerCase().replace('_', ' ');
         }
     };
     
@@ -28,7 +28,7 @@ public class Woman extends Model {
         
         public String toString() {
         
-            return name().toUpperCase().charAt(0) + name().substring(1).toLowerCase();
+            return name().toUpperCase().charAt(0) + name().substring(1).toLowerCase().replace('_', ' ');
         }
     };
     
@@ -38,7 +38,7 @@ public class Woman extends Model {
         public String toString() {
         
             if (name() == "LMP") return name();
-            return name().toUpperCase().charAt(0) + name().substring(1).toLowerCase();
+            return name().toUpperCase().charAt(0) + name().substring(1).toLowerCase().replace('_', ' ');
         }
         
     };

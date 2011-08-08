@@ -11,7 +11,7 @@ import java.util.*;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-import models.Logic.SatusCode;
+import models.Logic.StatusCode;
 import models.Woman.Event;
 import models.Woman.Outcome;
 
@@ -61,7 +61,7 @@ public class Forms extends Controller {
         list();
     }
     
-    public static void addLogic(Long formId, Logic.SatusCode status, Event base, Outcome outcome, Long destination_id, long duration, Event event) {
+    public static void addLogic(Long formId, Logic.StatusCode status, Event base, Outcome outcome, Long destination_id, long duration, Event event) {
     
         Form form = Form.findById(formId);
         

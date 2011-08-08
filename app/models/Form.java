@@ -7,7 +7,7 @@ import play.db.jpa.*;
 import javax.persistence.*;
 import java.util.*;
 
-import models.Logic.SatusCode;
+import models.Logic.StatusCode;
 import models.Woman.*;
 
 
@@ -69,7 +69,7 @@ public class Form extends Model {
         this.name = name;
     }
     
-    public Form addLogic(SatusCode status, Event base, Outcome outcome, Form destination, long duration, Event event) {
+    public Form addLogic(StatusCode status, Event base, Outcome outcome, Form destination, long duration, Event event) {
     
         Logic newLogic = new Logic(this, status, base, outcome, destination, duration, event).save();
         this.logics.add(newLogic);
