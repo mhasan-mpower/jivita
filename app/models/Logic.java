@@ -14,12 +14,7 @@ import models.Woman.*;
 public class Logic extends Model {
     
     public static enum StatusCode {
-        ANY, YES, NO;
-        
-        public String toString() {
-        
-            return name().toUpperCase().charAt(0) + name().substring(1).toLowerCase();
-        }
+        ANY, YES, NO
     };
     
     

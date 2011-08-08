@@ -15,31 +15,15 @@ import java.util.*;
 public class Woman extends Model {
     
     public static enum Outcome {
-        NONE, ALIVE, DEAD, STILL_BIRTH, LIVE_BIRTH;
-        
-        public String toString() {
-        
-            return name().toUpperCase().charAt(0) + name().substring(1).toLowerCase().replace('_', ' ');
-        }
+        NONE, ALIVE, DEAD, STILL_BIRTH, LIVE_BIRTH
     };
     
     public static enum Trigger {
-        NONE, REGISTRATION, DELIVERY, OUTCOME;
-        
-        public String toString() {
-        
-            return name().toUpperCase().charAt(0) + name().substring(1).toLowerCase().replace('_', ' ');
-        }
+        NONE, REGISTRATION, DELIVERY, OUTCOME
     };
     
     public static enum Event {
-        NONE, REGISTRATION, DELIVERY, OUTCOME, LMP;
-        
-        public String toString() {
-        
-            if (name() == "LMP") return name();
-            return name().toUpperCase().charAt(0) + name().substring(1).toLowerCase().replace('_', ' ');
-        }
+        NONE, REGISTRATION, DELIVERY, OUTCOME, LMP
         
     };
     

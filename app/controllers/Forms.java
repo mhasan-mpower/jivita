@@ -65,6 +65,16 @@ public class Forms extends Controller {
     
         Form form = Form.findById(formId);
         
+        // Check
+        /*
+        System.out.println(status);
+        System.out.println(base);
+        System.out.println(outcome);
+        System.out.println(destination_id);
+        System.out.println(duration);
+        System.out.println(event);
+        */
+        
         if (validation.hasErrors()) {
             List<Form> forms = Form.findAll();
             render("@view", form, forms);
