@@ -6,7 +6,6 @@ import play.db.jpa.*;
 
 import javax.persistence.*;
 import java.util.*;
-import models.Logicable;
 
 
 /**

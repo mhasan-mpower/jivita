@@ -11,7 +11,7 @@ import models.Woman.Event;
 /**
  * The Interface Logicable.
  */
-interface Logicable {
+public interface Logicable {
     
     /**
      * Gets the event date.
