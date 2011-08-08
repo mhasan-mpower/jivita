@@ -64,12 +64,14 @@ public class Woman extends Model implements Logicable {
     /** The lmp. */
     public Date   lmp;
     
-    /** The status. */
-    public Short  status;
-    
     /** Registration Date. */
     public Date   registered;
     
+    /** Registration Date. */
+    public Date   deliveryDate;
+    
+    /** The status. */
+    public Short  status;
     
     /**
      * The Constructor.
@@ -109,6 +111,8 @@ public class Woman extends Model implements Logicable {
         switch (event) {
             case REGISTRATION:
                 return this.registered;
+            case DELIVERY:
+                return this.deliveryDate;
             case LMP:
                 return this.lmp;
         }

@@ -10,28 +10,47 @@ import java.util.*;
 import models.Woman.*;
 
 
+/**
+ * The Class FormEntity.
+ */
 @Entity
 public class FormEntity extends Model {
     
+    /** The start date. */
     @Required
     public Date    start;
     
+    /** The scheduled date. */
     @Required
     public Date    scheduled;
     
+    /** The status. */
     public Short   status = 0;
     
+    /** The done. */
     public Boolean done   = false;
     
+    /** The form. */
     @Required
     @ManyToOne(cascade = CascadeType.ALL)
     public Form    form;
     
+    /** The woman. */
     @Required
     @ManyToOne(cascade = CascadeType.ALL)
     public Woman   woman;
     
     
+    /**
+     * The Constructor.
+     * 
+     * @param scheduled
+     *            the scheduled
+     * @param form
+     *            the form
+     * @param woman
+     *            the woman
+     */
     public FormEntity(Date scheduled, Form form, Woman woman) {
     
         this.start = this.scheduled = scheduled;
@@ -39,6 +58,18 @@ public class FormEntity extends Model {
         this.woman = woman;
     }
     
+    /**
+     * The Constructor.
+     * 
+     * @param start
+     *            the start
+     * @param scheduled
+     *            the scheduled
+     * @param form
+     *            the form
+     * @param woman
+     *            the woman
+     */
     public FormEntity(Date start, Date scheduled, Form form, Woman woman) {
     
         this(scheduled, form, woman);
@@ -46,6 +77,14 @@ public class FormEntity extends Model {
         
     }
     
+    /**
+     * Update.
+     * 
+     * @param status
+     *            the status
+     * @param outcome
+     *            the outcome
+     */
     public void update(Logic.StatusCode status, Outcome outcome) {
     
         List<Logic> logics = Logic.find("SELECT l FROM Logic l WHERE l.form=? AND l.status=? AND l.outcome", this.form, status, outcome).fetch();
