@@ -8,6 +8,7 @@ import java.util.*;
 import models.*;
 
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class Application.
  */
@@ -52,6 +53,8 @@ public class Application extends Controller {
      *            the form_id
      * @param status
      *            the status
+     * @param outcome
+     *            the outcome
      */
     public static void update(Long form_id, Logic.StatusCode status, Woman.Outcome outcome) {
     

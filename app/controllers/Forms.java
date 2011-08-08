@@ -16,12 +16,24 @@ import models.Woman.Event;
 import models.Woman.Outcome;
 
 
+/**
+ * The Class Forms.
+ */
 public class Forms extends Controller {
     
+    /**
+     * Index.
+     */
     public static void index() {
     
     }
     
+    /**
+     * View Form details page.
+     * 
+     * @param id
+     *            the id
+     */
     public static void view(Long id) {
     
         Form form = Form.findById(id);
@@ -29,6 +41,12 @@ public class Forms extends Controller {
         render(form, forms);
     }
     
+    /**
+     * Edit Form.
+     * 
+     * @param id
+     *            the id
+     */
     public static void edit(Long id) {
     
         List<Form> forms = Form.findAll();
@@ -37,35 +55,61 @@ public class Forms extends Controller {
         render(form, forms);
     }
     
+    /**
+     * List all Form.
+     */
     public static void list() {
     
         List<Form> forms = Form.findAll();
         render(forms);
     }
     
+    /**
+     * Creates new Form.
+     */
     public static void create() {
     
-        List<Form> forms = Form.findAll();
-        forms.add(0, new Form("Not Applicable"));
-        render(forms);
+        render();
     }
     
+    /**
+     * Submit new Form.
+     * 
+     * @param form
+     *            the form
+     */
     public static void submit(@Valid Form form) {
     
         if (validation.hasErrors()) {
-            List<Form> forms = Form.findAll();
-            forms.add(0, new Form("Not Applicable"));
-            render("@create", form, forms);
+            render("@create", form);
         }
         form.save();
         list();
     }
     
+    /**
+     * Adds logic to Form.
+     * 
+     * @param formId
+     *            the form id
+     * @param status
+     *            the status
+     * @param base
+     *            the base Date
+     * @param outcome
+     *            the outcome
+     * @param destination_id
+     *            the destination Form
+     * @param duration
+     *            the duration in days
+     * @param event
+     *            the event
+     */
     public static void addLogic(Long formId, Logic.StatusCode status, Event base, Outcome outcome, Long destination_id, int duration, Event event) {
     
         Form form = Form.findById(formId);
         
-        // Check
+        // Debug
         /*
         System.out.println(status);
         System.out.println(base);

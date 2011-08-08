@@ -10,33 +10,70 @@ import java.util.*;
 import models.Woman.*;
 
 
+/**
+ * The Class Logic.
+ */
 @Entity
 public class Logic extends Model {
     
+    /**
+     * The Enum StatusCode.
+     */
     public static enum StatusCode {
-        ANY, YES, NO
+        
+        /** The ANY. */
+        ANY,
+        /** The YES. */
+        YES,
+        /** The NO. */
+        NO
     };
     
     
+    /** The form. */
     @Required
     @ManyToOne(cascade = CascadeType.ALL)
     public Form       form;
     
+    /** The status. */
     public StatusCode status   = StatusCode.ANY;
     
+    /** The base Date. */
     public Event      base     = Event.NONE;
     
+    /** The outcome. */
     public Outcome    outcome  = Outcome.NONE;
     
+    /** The destination Form. */
     @Required
     @ManyToOne(cascade = CascadeType.REMOVE)
     public Form       destination;
     
+    /** The duration in days. */
     public int        duration = 0;
     
+    /** The event. */
     public Event      event    = Event.NONE;
     
     
+    /**
+     * Instantiates a new logic.
+     * 
+     * @param form
+     *            the form
+     * @param status
+     *            the status
+     * @param base
+     *            the base
+     * @param outcome
+     *            the outcome
+     * @param destination
+     *            the destination
+     * @param duration
+     *            the duration
+     * @param event
+     *            the event
+     */
     public Logic(Form form, StatusCode status, Event base, Outcome outcome, Form destination, int duration, Event event) {
     
         this.form = form;

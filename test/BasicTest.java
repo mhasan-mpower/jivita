@@ -3,11 +3,19 @@ import java.util.*;
 import play.test.*;
 import models.*;
 
-public class BasicTest extends UnitTest {
 
+/**
+ * The Class BasicTest.
+ */
+public class BasicTest extends UnitTest {
+    
+    /**
+     * A very important thing to test.
+     */
     @Test
     public void aVeryImportantThingToTest() {
+    
         assertEquals(2, 1 + 1);
     }
-
+    
 }

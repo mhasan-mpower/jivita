@@ -78,7 +78,7 @@ public class FormEntity extends Model {
     }
     
     /**
-     * Update.
+     * Update status and outcome, works as Listener.
      * 
      * @param status
      *            the status
@@ -113,4 +113,5 @@ public class FormEntity extends Model {
         this.done = true;
         this.save();
     }
+    
 }

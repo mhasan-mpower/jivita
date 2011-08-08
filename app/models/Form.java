@@ -39,6 +39,7 @@ public class Form extends Model {
     /** The auto create FormEntity. */
     public Trigger     autoCreateTrigger;
     
+    /** The logics. */
     @OneToMany(mappedBy = "form", cascade = CascadeType.ALL)
     public List<Logic> logics;
     
@@ -69,6 +70,23 @@ public class Form extends Model {
         this.name = name;
     }
     
+    /**
+     * Adds the logic to this Form.
+     * 
+     * @param status
+     *            the status
+     * @param base
+     *            the base Date
+     * @param outcome
+     *            the outcome
+     * @param destination
+     *            the destination
+     * @param duration
+     *            the duration in days
+     * @param event
+     *            the event
+     * @return the form
+     */
     public Form addLogic(StatusCode status, Event base, Outcome outcome, Form destination, int duration, Event event) {
     
         Logic newLogic = new Logic(this, status, base, outcome, destination, duration, event).save();
@@ -77,6 +95,14 @@ public class Form extends Model {
         return this;
     }
     
+    /**
+     * Invoke.
+     * 
+     * @param trigger
+     *            the trigger
+     * @param woman
+     *            the woman
+     */
     public static void invoke(Trigger trigger, Woman woman) {
     
         if (trigger == Trigger.REGISTRATION) {

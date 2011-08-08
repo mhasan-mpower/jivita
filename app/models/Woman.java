@@ -15,16 +15,53 @@ import models.Logicable;
 @Entity
 public class Woman extends Model implements Logicable {
     
+    /**
+     * The Enum Outcome.
+     */
     public static enum Outcome {
-        NONE, ALIVE, DEAD, STILL_BIRTH, LIVE_BIRTH
+        
+        /** The None. */
+        NONE,
+        /** The Alive. */
+        ALIVE,
+        /** The Dead. */
+        DEAD,
+        /** The Still Birth. */
+        STILL_BIRTH,
+        /** The Live Birth. */
+        LIVE_BIRTH
     };
     
+    /**
+     * The Enum Trigger.
+     */
     public static enum Trigger {
-        NONE, REGISTRATION, DELIVERY, OUTCOME
+        
+        /** The NONE. */
+        NONE,
+        /** The REGISTRATION. */
+        REGISTRATION,
+        /** The DELIVERY. */
+        DELIVERY,
+        /** The OUTCOME. */
+        OUTCOME
     };
     
+    /**
+     * The Enum Event.
+     */
     public static enum Event {
-        NONE, REGISTRATION, DELIVERY, OUTCOME, LMP
+        
+        /** The NONE. */
+        NONE,
+        /** The REGISTRATION. */
+        REGISTRATION,
+        /** The DELIVERY. */
+        DELIVERY,
+        /** The OUTCOME. */
+        OUTCOME,
+        /** The LMP. */
+        LMP
         
     };
     
@@ -61,13 +98,13 @@ public class Woman extends Model implements Logicable {
     /** The urine positive week. */
     public Long   urinePositiveWeek;
     
-    /** The lmp. */
+    /** The last menstrual period. */
     public Date   lmp;
     
-    /** Registration Date. */
+    /** The registration Date. */
     public Date   registered;
     
-    /** Registration Date. */
+    /** The delivery Date. */
     public Date   deliveryDate;
     
     /** The status. */
@@ -97,6 +134,9 @@ public class Woman extends Model implements Logicable {
         
     }
     
+    /* (non-Javadoc)
+     * @see play.db.jpa.JPABase#_save()
+     */
     @Override
     public void _save() {
     
@@ -105,6 +145,9 @@ public class Woman extends Model implements Logicable {
         Form.invoke(Trigger.REGISTRATION, this);
     }
     
+    /* (non-Javadoc)
+     * @see models.Logicable#getEventDate(models.Woman.Event)
+     */
     @Override
     public Date getEventDate(Event event) {
     
