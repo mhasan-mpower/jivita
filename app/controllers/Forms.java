@@ -61,7 +61,7 @@ public class Forms extends Controller {
         list();
     }
     
-    public static void addLogic(Long formId, Logic.StatusCode status, Event base, Outcome outcome, Long destination_id, long duration, Event event) {
+    public static void addLogic(Long formId, Logic.StatusCode status, Event base, Outcome outcome, Long destination_id, int duration, Event event) {
     
         Form form = Form.findById(formId);
         

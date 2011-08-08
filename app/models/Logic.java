@@ -32,12 +32,12 @@ public class Logic extends Model {
     @ManyToOne(cascade = CascadeType.REMOVE)
     public Form       destination;
     
-    public long       duration = 0;
+    public int        duration = 0;
     
     public Event      event    = Event.NONE;
     
     
-    public Logic(Form form, StatusCode status, Event base, Outcome outcome, Form destination, long duration, Event event) {
+    public Logic(Form form, StatusCode status, Event base, Outcome outcome, Form destination, int duration, Event event) {
     
         this.form = form;
         this.status = status;
@@ -48,4 +48,10 @@ public class Logic extends Model {
         this.event = event;
     }
     
+}
+
+
+interface Logicable {
+    
+    public Date getEventDate(Event event);
 }

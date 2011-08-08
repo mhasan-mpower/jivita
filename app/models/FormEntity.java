@@ -5,8 +5,9 @@ import play.data.validation.*;
 import play.db.jpa.*;
 
 import javax.persistence.*;
-
 import java.util.*;
+
+import models.Woman.*;
 
 
 @Entity
@@ -45,13 +46,32 @@ public class FormEntity extends Model {
         
     }
     
-    public void update(Short status) {
+    public void update(Logic.StatusCode status, Outcome outcome) {
     
-        Calendar now = Calendar.getInstance();
-        Calendar old = Calendar.getInstance();
-        old.setTime(this.start);
+        List<Logic> logics = Logic.find("SELECT l FROM Logic l WHERE l.form=? AND l.status=? AND l.outcome", this.form, status, outcome).fetch();
         
+        for (Logic logic : logics) {
+            Date baseDate = this.woman.getEventDate(logic.base);
+            Calendar validUntil = Calendar.getInstance();
+            validUntil.setTime(baseDate);
+            validUntil.add(Calendar.DATE, this.form.validity);
+            
+            if (validUntil.after(new Date())) {
+                Calendar nextWeek = Calendar.getInstance();
+                nextWeek.add(Calendar.DATE, 7);
+                new FormEntity(nextWeek.getTime(), this.form, this.woman).save();
+            }
+            else {
+                Date eventDate = this.woman.getEventDate(logic.event);
+                Calendar nextDate = Calendar.getInstance();
+                nextDate.setTime(eventDate);
+                nextDate.add(Calendar.DATE, logic.duration);
+                
+                new FormEntity(nextDate.getTime(), logic.destination, this.woman).save();
+            }
+        }
+        
+        this.done = true;
         this.save();
-        
     }
 }

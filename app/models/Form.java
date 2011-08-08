@@ -69,7 +69,7 @@ public class Form extends Model {
         this.name = name;
     }
     
-    public Form addLogic(StatusCode status, Event base, Outcome outcome, Form destination, long duration, Event event) {
+    public Form addLogic(StatusCode status, Event base, Outcome outcome, Form destination, int duration, Event event) {
     
         Logic newLogic = new Logic(this, status, base, outcome, destination, duration, event).save();
         this.logics.add(newLogic);
@@ -80,7 +80,7 @@ public class Form extends Model {
     public static void invoke(Trigger trigger, Woman woman) {
     
         if (trigger == Trigger.REGISTRATION) {
-            List<Form> forms = Form.find("SELECT f FROM Form f WHERE f.autoCreate=? AND autoCreateTrigger=?", true, trigger).fetch();
+            List<Form> forms = Form.find("SELECT f FROM Form f WHERE f.autoCreate=? AND f.autoCreateTrigger=?", true, trigger).fetch();
             
             Calendar nextWeek = Calendar.getInstance();
             nextWeek.setTime(woman.registered);

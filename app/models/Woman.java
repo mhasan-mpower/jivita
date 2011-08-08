@@ -12,7 +12,7 @@ import java.util.*;
  * The Class Woman.
  */
 @Entity
-public class Woman extends Model {
+public class Woman extends Model implements Logicable {
     
     public static enum Outcome {
         NONE, ALIVE, DEAD, STILL_BIRTH, LIVE_BIRTH
@@ -100,5 +100,18 @@ public class Woman extends Model {
         this.registered = new Date();
         super._save();
         Form.invoke(Trigger.REGISTRATION, this);
+    }
+    
+    @Override
+    public Date getEventDate(Event event) {
+    
+        switch (event) {
+            case REGISTRATION:
+                return this.registered;
+            case LMP:
+                return this.lmp;
+        }
+        
+        return new Date();
     }
 }
