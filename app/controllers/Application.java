@@ -53,9 +53,9 @@ public class Application extends Controller {
      * @param status
      *            the status
      */
-    public static void update(Long form_id, Short status) {
+    public static void update(Long form_id, Logic.StatusCode status, Woman.Outcome outcome) {
     
         FormEntity fe = FormEntity.findById(form_id);
-        fe.update(status);
+        fe.update(status, outcome);
     }
 }
