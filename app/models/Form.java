@@ -5,7 +5,6 @@ import play.data.validation.*;
 import play.db.jpa.*;
 
 import javax.persistence.*;
-
 import java.util.*;
 
 import models.Logic.SatusCode;
@@ -29,16 +28,16 @@ public class Form extends Model {
     
     /** The Validity of the form in days. */
     @Min(0)
-    public int         validity        = 0;
+    public int         validity   = 0;
     
     /** Auto create this this form. */
-    public Boolean     autoCreate      = false;
+    public Boolean     autoCreate = false;
     
     /** Auto create after autoCreateAfter days . */
-    public int         autoCreateAfter = 7;
+    public int         autoCreateAfter;
     
-    /** The auto create event. */
-    public Trigger     autoCreateEvent;
+    /** The auto create FormEntity. */
+    public Trigger     autoCreateTrigger;
     
     @OneToMany(mappedBy = "form", cascade = CascadeType.ALL)
     public List<Logic> logics;
@@ -78,8 +77,18 @@ public class Form extends Model {
         return this;
     }
     
-    public static void invoke(Trigger trigger) {
+    public static void invoke(Trigger trigger, Woman woman) {
     
+        if (trigger == Trigger.REGISTRATION) {
+            List<Form> forms = Form.find("SELECT f FROM Form f WHERE f.autoCreate=? AND autoCreateTrigger=?", true, trigger).fetch();
+            
+            Calendar nextWeek = Calendar.getInstance();
+            nextWeek.setTime(woman.registered);
+            nextWeek.add(Calendar.DATE, 7);
+            
+            for (Form form : forms) {
+                new FormEntity(nextWeek.getTime(), form, woman).save();
+            }
+        }
     }
-    
 }

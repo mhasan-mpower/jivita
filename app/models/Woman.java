@@ -83,7 +83,7 @@ public class Woman extends Model {
     public Short  status;
     
     /** Registration Date. */
-    public Date   registered = new Date();
+    public Date   registered;
     
     
     /**
@@ -113,8 +113,8 @@ public class Woman extends Model {
     @Override
     public void _save() {
     
+        this.registered = new Date();
         super._save();
-        Form.invoke(Trigger.REGISTRATION);
+        Form.invoke(Trigger.REGISTRATION, this);
     }
-    
 }

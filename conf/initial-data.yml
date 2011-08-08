@@ -4,10 +4,16 @@ Form(PEF):
     name:               "Pregnancy Enrollment Form"
     shortName:          "PEF"
     validity:           84
+    autoCreate:         true
+    autoCreateAfter:    7
+    autoCreateTrigger:  REGISTRATION
     
 Form(SES):
     name:               "Socio-Economic Status Form"
     shortName:          "SES"
+    autoCreate:         true
+    autoCreateAfter:    7
+    autoCreateTrigger:  REGISTRATION
 
 Form(LPF):
     name:               "Late Pregnancy Form"

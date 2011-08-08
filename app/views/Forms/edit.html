@@ -53,15 +53,10 @@
         </p>
     #{/field}
    
-    #{field 'form.autoCreateEvent'}
+    #{field 'form.autoCreateTrigger'}
         <p class="${field.errorClass} row grid_3 omega">
             <label for="${field.name}">Invoke with the following event</label>
-            <select name="${field.name}" id="${field.name}">
-                <option value="NONE">None</option>
-                <option value="REGISTRATION">Registration</option>
-                <option value="DELIVERY">Delivery</option>
-                <option value="LMP">LMP</option>
-            </select> 
+            #{select items:models.Woman.Trigger.values(), name:field.name, id:field.name, value:form.autoCreateTrigger /} 
         </p>
         <div class="clear">&nbsp;</div>
     </div>

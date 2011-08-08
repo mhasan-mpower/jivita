@@ -52,7 +52,6 @@ public class Forms extends Controller {
     
     public static void submit(@Valid Form form) {
     
-        System.out.println(form.autoCreateEvent);
         if (validation.hasErrors()) {
             List<Form> forms = Form.findAll();
             forms.add(0, new Form("Not Applicable"));
@@ -65,14 +64,6 @@ public class Forms extends Controller {
     public static void addLogic(Long formId, Logic.SatusCode status, Event base, Outcome outcome, Long destination_id, long duration, Event event) {
     
         Form form = Form.findById(formId);
-        
-        // Check
-        System.out.println(status);
-        System.out.println(base);
-        System.out.println(outcome);
-        System.out.println(destination_id);
-        System.out.println(duration);
-        System.out.println(event);
         
         if (validation.hasErrors()) {
             List<Form> forms = Form.findAll();
