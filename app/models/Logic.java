@@ -49,9 +49,3 @@ public class Logic extends Model {
     }
     
 }
-
-
-interface Logicable {
-    
-    public Date getEventDate(Event event);
-}
