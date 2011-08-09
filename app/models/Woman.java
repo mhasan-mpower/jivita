@@ -64,6 +64,18 @@ public class Woman extends Model implements Logicable {
         
     };
     
+    /**
+     * The Enum StatusCode.
+     */
+    public static enum StatusCode {
+        
+        /** The ANY. */
+        ANY,
+        /** The YES. */
+        YES,
+        /** The NO. */
+        NO
+    };
     
     /** The woman name. */
     @Required

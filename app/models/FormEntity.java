@@ -85,9 +85,9 @@ public class FormEntity extends Model {
      * @param outcome
      *            the outcome
      */
-    public void update(Logic.StatusCode status, Outcome outcome) {
+    public void update(StatusCode status, Outcome outcome) {
     
-        List<Logic> logics = Logic.find("SELECT l FROM Logic l WHERE l.form=? AND l.status=? AND l.outcome", this.form, status, outcome).fetch();
+        List<Logic> logics = Logic.find("SELECT l FROM Logic l WHERE l.form=? AND l.status=? AND l.outcome=?", this.form, status, outcome).fetch();
         
         for (Logic logic : logics) {
             Date baseDate = this.woman.getEventDate(logic.base);
@@ -95,7 +95,7 @@ public class FormEntity extends Model {
             validUntil.setTime(baseDate);
             validUntil.add(Calendar.DATE, this.form.validity);
             
-            if (validUntil.after(new Date())) {
+            if (validUntil.getTime().after(new Date())) {
                 Calendar nextWeek = Calendar.getInstance();
                 nextWeek.add(Calendar.DATE, 7);
                 new FormEntity(nextWeek.getTime(), this.form, this.woman).save();

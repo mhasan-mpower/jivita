@@ -6,9 +6,9 @@ import play.mvc.*;
 
 import java.util.*;
 import models.*;
+import models.Woman.*;
 
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Application.
  */
@@ -19,10 +19,12 @@ public class Application extends Controller {
      */
     public static void index() {
     
+        // Application.update((long) 1, StatusCode.NO, Outcome.NONE);
+        
         List<String> sectors = Woman.find("SELECT DISTINCT w.sectorId AS id FROM Woman w ORDER BY w.sectorId ASC").fetch();
         sectors.add(0, "All");
         
-        List<FormEntity> events = FormEntity.find("scheduled >= ?", new Date()).fetch();
+        List<FormEntity> events = FormEntity.find("scheduled >= ? AND done=0", new Date()).fetch();
         render(events, sectors);
     }
     
@@ -39,8 +41,9 @@ public class Application extends Controller {
             events = FormEntity.find("scheduled >= ?", new Date()).fetch();
         }
         else {
-            events = FormEntity.find("SELECT f FROM FormEntity AS f, Woman AS w WHERE f.woman = w AND f.scheduled >= ?  AND w.sectorId = ?",
-                    new Date(), id).fetch();
+            events = FormEntity
+                    .find("SELECT f FROM FormEntity AS f, Woman AS w WHERE f.woman = w AND f.scheduled >= ?  AND w.sectorId = ? AND done=0",
+                            new Date(), id).fetch();
         }
         
         render(events);
@@ -56,9 +59,10 @@ public class Application extends Controller {
      * @param outcome
      *            the outcome
      */
-    public static void update(Long form_id, Logic.StatusCode status, Woman.Outcome outcome) {
+    public static void update(Long form_id, StatusCode status, Woman.Outcome outcome) {
     
         FormEntity fe = FormEntity.findById(form_id);
         fe.update(status, outcome);
+        index();
     }
 }

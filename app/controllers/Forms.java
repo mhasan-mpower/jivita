@@ -7,13 +7,7 @@ import play.mvc.*;
 import models.*;
 
 import java.util.*;
-
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-
-import models.Logic.StatusCode;
-import models.Woman.Event;
-import models.Woman.Outcome;
+import models.Woman.*;
 
 
 /**
@@ -103,7 +97,7 @@ public class Forms extends Controller {
      * @param event
      *            the event
      */
-    public static void addLogic(Long formId, Logic.StatusCode status, Event base, Outcome outcome, Long destination_id, int duration, Event event) {
+    public static void addLogic(Long formId, StatusCode status, Event base, Outcome outcome, Long destination_id, int duration, Event event) {
     
         Form form = Form.findById(formId);
         

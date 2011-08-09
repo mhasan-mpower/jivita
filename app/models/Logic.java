@@ -16,20 +16,6 @@ import models.Woman.*;
 @Entity
 public class Logic extends Model {
     
-    /**
-     * The Enum StatusCode.
-     */
-    public static enum StatusCode {
-        
-        /** The ANY. */
-        ANY,
-        /** The YES. */
-        YES,
-        /** The NO. */
-        NO
-    };
-    
-    
     /** The form. */
     @Required
     @ManyToOne(cascade = CascadeType.ALL)

@@ -40,7 +40,7 @@
             <th>Status</th>
             <th>${form.validity} day(s) After</th>
             <th>Outcome</th>
-            <th>Goto</th>
+            <th>Go to</th>
             <th>After (days)</th>
             <th>After (event)</th>
         </tr>
@@ -79,7 +79,7 @@
                 <label for="${field.name}">Status</label>
             </td>
             <td>
-                #{select items:models.Logic.StatusCode.values(), name:field.name, id:field.name, value:field.value /}
+                #{select items:models.Woman.StatusCode.values(), name:field.name, id:field.name, value:field.value /}
                 <span class="error">${field.error}</span>
             </td>
         </tr>
@@ -112,7 +112,7 @@
         #{field 'destination_id'}
         <tr>
             <td>
-                <label for="${field.name}">Goto</label>
+                <label for="${field.name}">Go to</label>
             </td>
             <td>
                 #{select "${field.name}", items:forms, labelProperty:'shortName' /}
