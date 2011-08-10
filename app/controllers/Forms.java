@@ -97,7 +97,7 @@ public class Forms extends Controller {
      * @param event
      *            the event
      */
-    public static void addLogic(Long formId, StatusCode status, Event base, Outcome outcome, Long destination_id, int duration, Event event) {
+    public static void addLogic(Long formId, Status status, Event base, Outcome outcome, Long destination_id, int duration, Event event) {
     
         Form form = Form.findById(formId);
         

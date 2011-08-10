@@ -86,7 +86,7 @@ public class Form extends Model {
      *            the event
      * @return the form
      */
-    public Form addLogic(StatusCode status, Event base, Outcome outcome, Form destination, int duration, Event event) {
+    public Form addLogic(Status status, Event base, Outcome outcome, Form destination, int duration, Event event) {
     
         Logic newLogic = new Logic(this, status, base, outcome, destination, duration, event).save();
         this.logics.add(newLogic);

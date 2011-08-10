@@ -68,6 +68,43 @@ Form(MVAF):
     shortName:          "MVAF"
 
 
+Logic(PEF_1):
+    form:               [PEF]
+    destination:        [LPF]
+    status:             NO
+    base:               REGISTRATION
+    duration:           224
+    event:              LMP
+    outcome:            NONE
+
+Logic(PEF_2):
+    form:               [PEF]
+    destination:        [LPF]
+    status:             YES
+    base:               NONE
+    duration:           224
+    event:              LMP
+    outcome:            NONE
+    
+Logic(SES_1):
+    form:               [SES]
+    destination:        [LPF]
+    status:             NO
+    base:               REGISTRATION
+    duration:           224
+    event:              LMP
+    outcome:            NONE
+
+Logic(SED_2):
+    form:               [SES]
+    destination:        [LPF]
+    status:             YES
+    base:               NONE
+    duration:           224
+    event:              LMP
+    outcome:            NONE
+    
+
 Woman(117):
     UID:                117
     name:               "Soma BG"

@@ -85,7 +85,7 @@ public class FormEntity extends Model {
      * @param outcome
      *            the outcome
      */
-    public void update(StatusCode status, Outcome outcome) {
+    public void update(Status status, Outcome outcome) {
     
         List<Logic> logics = Logic.find("SELECT l FROM Logic l WHERE l.form=? AND l.status=? AND l.outcome=?", this.form, status, outcome).fetch();
         

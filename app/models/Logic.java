@@ -19,27 +19,27 @@ public class Logic extends Model {
     /** The form. */
     @Required
     @ManyToOne(cascade = CascadeType.ALL)
-    public Form       form;
+    public Form    form;
     
     /** The status. */
-    public StatusCode status   = StatusCode.ANY;
+    public Status  status   = Status.ANY;
     
     /** The base Date. */
-    public Event      base     = Event.NONE;
+    public Event   base     = Event.NONE;
     
     /** The outcome. */
-    public Outcome    outcome  = Outcome.NONE;
+    public Outcome outcome  = Outcome.NONE;
     
     /** The destination Form. */
     @Required
     @ManyToOne(cascade = CascadeType.REMOVE)
-    public Form       destination;
+    public Form    destination;
     
     /** The duration in days. */
-    public int        duration = 0;
+    public int     duration = 0;
     
     /** The event. */
-    public Event      event    = Event.NONE;
+    public Event   event    = Event.NONE;
     
     
     /**
@@ -60,7 +60,7 @@ public class Logic extends Model {
      * @param event
      *            the event
      */
-    public Logic(Form form, StatusCode status, Event base, Outcome outcome, Form destination, int duration, Event event) {
+    public Logic(Form form, Status status, Event base, Outcome outcome, Form destination, int duration, Event event) {
     
         this.form = form;
         this.status = status;
