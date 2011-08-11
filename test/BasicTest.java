@@ -10,12 +10,33 @@ import models.*;
 public class BasicTest extends UnitTest {
     
     /**
-     * A very important thing to test.
+     * Clean existing test database and insert data form the /test/data.yml
      */
-    @Test
-    public void aVeryImportantThingToTest() {
+    @Before
+    public void begin() {
     
-        assertEquals(2, 1 + 1);
+        Fixtures.deleteDatabase();
+        Fixtures.loadModels("data.yml");
     }
     
+    /**
+     * Test Woman module
+     */
+    @Test
+    public void testWomanModule() {
+    
+        // Woman(Long UID, String name, String husbandName, Long sectorId, Long hhId)
+        Woman oldWoman1 = new Woman((long) 1, "Salma", "Salauddin", (long) 120, (long) 101).save();
+        Woman oldWoman2 = new Woman((long) 2, "Asiya", "Razzab", (long) 110, (long) 203).save();
+        
+        Woman newWoman1 = Woman.find("byUID", 1).first();
+        
+        FormEntity fe = FormEntity.find("SELECT f FROM FormEntity f, Woman w WHERE f.woman=w AND w.sectorId=?", (long) 120).first();
+        
+        assertNotNull(newWoman1);
+        assertEquals(newWoman1, oldWoman1);
+        assertNotSame(newWoman1, oldWoman2);
+        
+        assertEquals(newWoman1, fe.woman);
+    }
 }
