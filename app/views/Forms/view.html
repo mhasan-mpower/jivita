@@ -79,7 +79,7 @@
                 <label for="${field.name}">Status</label>
             </td>
             <td>
-                #{select items:models.Woman.Status.values(), name:field.name, id:field.name, value:field.value /}
+                #{select items:models.Woman.Status.values(), labelProperty: 'name', name:field.name, id:field.name, value:field.value /}
                 <span class="error">${field.error}</span>
             </td>
         </tr>
@@ -91,7 +91,7 @@
                 <label for="${field.name}">${form.validity} day(s) After</label>
             </td>
             <td>
-                #{select items:models.Woman.Event.values(), name:field.name, id:field.name, value:field.value /}
+                #{select items:models.Woman.Event.values(), labelProperty: 'name', name:field.name, id:field.name, value:field.value /}
                 <span class="error">${field.error}</span>
             </td>
         </tr>
@@ -103,7 +103,7 @@
                 <label for="${field.name}">Outcome</label>
             </td>
             <td>
-                #{select items:models.Woman.Outcome.values(), name:field.name, id:field.name, value:field.value /}
+                #{select items:models.Woman.Outcome.values(), labelProperty: 'name', name:field.name, id:field.name, value:field.value /}
                 <span class="error">${field.error}</span>
             </td>
         </tr>
@@ -139,7 +139,7 @@
                 <label for="${field.name}">After <span class="mute">(event)</span></label>
             </td>
             <td>
-                #{select items:models.Woman.Event.values(), name:field.name, id:field.name, value:field.value /}
+                #{select items:models.Woman.Event.values(), labelProperty: 'name', name:field.name, id:field.name, value:field.value /}
                 <span class="error">${field.error}</span>
             <td>
         </tr>

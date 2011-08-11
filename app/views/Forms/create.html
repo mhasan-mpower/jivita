@@ -52,12 +52,7 @@
    
         <p class="${field.errorClass} row grid_3 omega">
             <label for="autoCreateEvent">Invoke with the following event</label>
-            <select name="${field.name}" id="${field.name}">
-                <option value="None">None</option>
-                <option value="REGISTRATION">Registration</option>
-                <option value="DELIVERY">Delivery</option>
-                <option value="LMP">LMP</option>
-            </select> 
+            #{select items:models.Woman.Trigger.values(), labelProperty: 'name', name:field.name, id:field.name, value:field.value /} 
         </p>
         <div class="clear">&nbsp;</div>
     </div>

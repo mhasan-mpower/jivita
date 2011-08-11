@@ -7,6 +7,8 @@ import play.db.jpa.*;
 import javax.persistence.*;
 import java.util.*;
 
+import utils.*;
+
 
 /**
  * The Class Woman.
@@ -28,7 +30,18 @@ public class Woman extends Model implements Logicable {
         /** The Still Birth. */
         STILL_BIRTH,
         /** The Live Birth. */
-        LIVE_BIRTH
+        LIVE_BIRTH;
+        
+        /**
+         * Gets the name.
+         * 
+         * @return the name
+         */
+        public String getName() {
+        
+            return StringUtil.titleCase(name());
+        }
+        
     };
     
     /**
@@ -43,7 +56,18 @@ public class Woman extends Model implements Logicable {
         /** The DELIVERY. */
         DELIVERY,
         /** The OUTCOME. */
-        OUTCOME
+        OUTCOME;
+        
+        /**
+         * Gets the name.
+         * 
+         * @return the name
+         */
+        public String getName() {
+        
+            return StringUtil.titleCase(name());
+        }
+        
     };
     
     /**
@@ -51,16 +75,26 @@ public class Woman extends Model implements Logicable {
      */
     public static enum Event {
         
-        /** The NONE. */
+        /** The None. */
         NONE,
-        /** The REGISTRATION. */
+        /** The Registration. */
         REGISTRATION,
-        /** The DELIVERY. */
+        /** The Delivery. */
         DELIVERY,
-        /** The OUTCOME. */
+        /** The Outcome. */
         OUTCOME,
-        /** The LMP. */
-        LMP
+        /** The Last Menstrual Period. */
+        LAST_MENSTRUAL_PERIOD;
+        
+        /**
+         * Gets the name.
+         * 
+         * @return the name
+         */
+        public String getName() {
+        
+            return StringUtil.titleCase(name());
+        }
         
     };
     
@@ -74,7 +108,18 @@ public class Woman extends Model implements Logicable {
         /** The Complete. */
         COMPLETE,
         /** The Incomplete. */
-        INCOMPLETE
+        INCOMPLETE;
+        
+        /**
+         * Gets the name.
+         * 
+         * @return the name
+         */
+        public String getName() {
+        
+            return StringUtil.titleCase(name());
+        }
+        
     };
     
     /** The woman name. */
@@ -167,7 +212,7 @@ public class Woman extends Model implements Logicable {
                 return this.registered;
             case DELIVERY:
                 return this.deliveryDate;
-            case LMP:
+            case LAST_MENSTRUAL_PERIOD:
                 return this.lmp;
         }
         
