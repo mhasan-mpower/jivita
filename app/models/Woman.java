@@ -69,12 +69,12 @@ public class Woman extends Model implements Logicable {
      */
     public static enum Status {
         
-        /** The ANY. */
+        /** The Any. */
         ANY,
-        /** The YES. */
-        YES,
-        /** The NO. */
-        NO
+        /** The Complete. */
+        COMPLETE,
+        /** The Incomplete. */
+        INCOMPLETE
     };
     
     /** The woman name. */

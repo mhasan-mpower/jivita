@@ -95,8 +95,9 @@ public class FormEntity extends Model {
             validUntil.setTime(baseDate);
             validUntil.add(Calendar.DATE, this.form.validity);
             
-            if (validUntil.getTime().after(new Date())) {
+            if (validUntil.getTime().after(new Date()) && logic.status == Status.INCOMPLETE) {
                 Calendar nextWeek = Calendar.getInstance();
+                nextWeek.setTime(this.scheduled);
                 nextWeek.add(Calendar.DATE, 7);
                 new FormEntity(nextWeek.getTime(), this.form, this.woman).save();
             }

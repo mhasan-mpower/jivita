@@ -19,7 +19,7 @@ public class Application extends Controller {
      */
     public static void index() {
     
-        // Application.update((long) 1, StatusCode.NO, Outcome.NONE);
+        // Application.update((long) 1, Status.COMPLETE, Outcome.NONE);
         
         List<String> sectors = Woman.find("SELECT DISTINCT w.sectorId AS id FROM Woman w ORDER BY w.sectorId ASC").fetch();
         sectors.add(0, "All");
@@ -63,6 +63,6 @@ public class Application extends Controller {
     
         FormEntity fe = FormEntity.findById(form_id);
         fe.update(status, outcome);
-        index();
+        // index();
     }
 }

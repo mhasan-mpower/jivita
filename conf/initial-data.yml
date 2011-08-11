@@ -71,7 +71,7 @@ Form(MVAF):
 Logic(PEF_1):
     form:               [PEF]
     destination:        [LPF]
-    status:             NO
+    status:             INCOMPLETE
     base:               REGISTRATION
     duration:           224
     event:              LMP
@@ -80,7 +80,7 @@ Logic(PEF_1):
 Logic(PEF_2):
     form:               [PEF]
     destination:        [LPF]
-    status:             YES
+    status:             COMPLETE
     base:               NONE
     duration:           224
     event:              LMP
@@ -89,7 +89,7 @@ Logic(PEF_2):
 Logic(SES_1):
     form:               [SES]
     destination:        [LPF]
-    status:             NO
+    status:             INCOMPLETE
     base:               REGISTRATION
     duration:           224
     event:              LMP
@@ -98,7 +98,7 @@ Logic(SES_1):
 Logic(SED_2):
     form:               [SES]
     destination:        [LPF]
-    status:             YES
+    status:             COMPLETE
     base:               NONE
     duration:           224
     event:              LMP
