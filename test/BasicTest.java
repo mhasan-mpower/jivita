@@ -25,13 +25,13 @@ public class BasicTest extends UnitTest {
     
     @Test
     public void testJivitaWeek() {
-        JivitaWeek jw = JivitaWeek.getInstance();
+        JWeek jw = JWeek.getInstance();
         
         Date date1 = new Date();
-        int jw1 = jw.getJivitaWeek(date1);
+        int jw1 = jw.getJWeek(date1);
         
         Date date2 = jw.getDate(jw1);
-        int jw2 = jw.getJivitaWeek(date2);
+        int jw2 = jw.getJWeek(date2);
         
         System.out.print("Date = ");
         System.out.print(date1);

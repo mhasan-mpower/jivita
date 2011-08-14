@@ -9,33 +9,33 @@ import org.joda.time.*;
 
 
 /**
- * JivitaWeek Wrapper Class. Converts date to jivita-week or jivita-week to date.
+ * Jivita Week Wrapper Class. Converts date to jivita-week or jivita-week to date.
  */
-public class JivitaWeek {
+public class JWeek {
     
     /** The unique instance of singleton object. */
-    private static JivitaWeek uniqInstance;
+    private static JWeek uniqInstance;
     
     
     /** The start date of jivita week. */
-    private DateTime          jivitaEpoch;
+    private DateTime     jivitaEpoch;
     
     /**
-     * Prevent creating instances of a new JivitaWeek.
+     * Prevent creating instances of a new JWeek.
      */
-    private JivitaWeek() {
+    private JWeek() {
         // Private constructor
         jivitaEpoch = new DateTime(2000, 1, 1, 0, 0, 0, 0);
     }
     
     /**
-     * Gets the single instance of JivitaWeek.
+     * Gets the single instance of JWeek.
      * 
-     * @return single instance of JivitaWeek
+     * @return single instance of JWeek
      */
-    public static synchronized JivitaWeek getInstance() {
+    public static synchronized JWeek getInstance() {
         if (uniqInstance == null) {
-            uniqInstance = new JivitaWeek();
+            uniqInstance = new JWeek();
         }
         return uniqInstance;
     }
@@ -59,7 +59,7 @@ public class JivitaWeek {
      *            the date
      * @return the jivita week from date
      */
-    public int getJivitaWeek(final Date date) {
+    public int getJWeek(final Date date) {
         DateTime givenDate = new DateTime(date);
         Weeks weeks = Weeks.weeksBetween(jivitaEpoch, givenDate);
         return weeks.getWeeks();
