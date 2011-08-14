@@ -39,7 +39,7 @@ public class JivitaWeek {
      *            the jivita week
      * @return the date from jivita week
      */
-    public Date getDateFromJivitaWeek(final int jivitaWeek) {
+    public Date getDate(final int jivitaWeek) {
         DateTime jivitaEpoch = new DateTime(2000, 1, 1, 0, 0, 0, 0);
         DateTime date = jivitaEpoch.plusWeeks(jivitaWeek);
         return date.toDate();
@@ -52,7 +52,7 @@ public class JivitaWeek {
      *            the date
      * @return the jivita week from date
      */
-    public int getJivitaWeekFromDate(final Date date) {
+    public int getJivitaWeek(final Date date) {
         DateTime jivitaEpoch = new DateTime(2000, 1, 1, 0, 0, 0, 0);
         DateTime givenDate = new DateTime(date);
         Weeks weeks = Weeks.weeksBetween(jivitaEpoch, givenDate);
