@@ -10,7 +10,7 @@ import org.joda.time.*;
  */
 public class JivitaWeek {
     
-    /** The uniq instance of singleton object. */
+    /** The unique instance of singleton object. */
     private static JivitaWeek uniqInstance;
     
     /**

@@ -15,12 +15,12 @@ public class BasicTest extends UnitTest {
     /**
      * Clean existing test database and insert data form the /test/data.yml
      */
-    /*    @Before
-        public void begin() {
-            
-            Fixtures.deleteDatabase();
-            Fixtures.loadModels("data.yml");
-        }*/
+    @Before
+    public void begin() {
+        
+        Fixtures.deleteDatabase();
+        Fixtures.loadModels("data.yml");
+    }
     
     
     @Test
