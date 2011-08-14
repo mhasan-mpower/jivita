@@ -17,11 +17,10 @@ public class Bootstrap extends Job {
      * @see play.jobs.Job#doJob()
      */
     public void doJob() {
-    
+        
         // Check if the database is empty
         if (Form.count() == 0) {
             Fixtures.loadModels("initial-data.yml");
         }
     }
-    
 }
