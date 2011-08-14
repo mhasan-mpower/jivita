@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package utils;
 
 import java.util.*;
@@ -13,11 +16,16 @@ public class JivitaWeek {
     /** The unique instance of singleton object. */
     private static JivitaWeek uniqInstance;
     
+    
+    /** The start date of jivita week. */
+    private DateTime          jivitaEpoch;
+    
     /**
-     * Prevent creating instances of a new JivitaWeek. No code required inside.
+     * Prevent creating instances of a new JivitaWeek.
      */
     private JivitaWeek() {
         // Private constructor
+        jivitaEpoch = new DateTime(2000, 1, 1, 0, 0, 0, 0);
     }
     
     /**
@@ -40,7 +48,6 @@ public class JivitaWeek {
      * @return the date from jivita week
      */
     public Date getDate(final int jivitaWeek) {
-        DateTime jivitaEpoch = new DateTime(2000, 1, 1, 0, 0, 0, 0);
         DateTime date = jivitaEpoch.plusWeeks(jivitaWeek);
         return date.toDate();
     }
@@ -53,7 +60,6 @@ public class JivitaWeek {
      * @return the jivita week from date
      */
     public int getJivitaWeek(final Date date) {
-        DateTime jivitaEpoch = new DateTime(2000, 1, 1, 0, 0, 0, 0);
         DateTime givenDate = new DateTime(date);
         Weeks weeks = Weeks.weeksBetween(jivitaEpoch, givenDate);
         return weeks.getWeeks();
