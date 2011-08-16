@@ -17,7 +17,7 @@ public class BasicTest extends UnitTest {
      */
     @Before
     public void begin() {
-        
+    
         Fixtures.deleteDatabase();
         Fixtures.loadModels("data.yml");
     }
@@ -25,6 +25,7 @@ public class BasicTest extends UnitTest {
     
     @Test
     public void testJivitaWeek() {
+    
         JWeek jw = JWeek.getInstance();
         
         Date date1 = new Date();
@@ -47,14 +48,14 @@ public class BasicTest extends UnitTest {
      */
     @Test
     public void testWomanModule() {
-        
+    
         // Woman(Long UID, String name, String husbandName, Long sectorId, Long hhId)
-        Woman oldWoman1 = new Woman((long) 1, "Salma", "Salauddin", (long) 120, (long) 101).save();
-        Woman oldWoman2 = new Woman((long) 2, "Asiya", "Razzab", (long) 110, (long) 203).save();
+        Woman oldWoman1 = new Woman(1l, "Salma", "Salauddin", 120l, 101l).save();
+        Woman oldWoman2 = new Woman(2l, "Asiya", "Razzab", 110l, 203l).save();
         
         Woman newWoman1 = Woman.find("byUID", 1).first();
         
-        FormEntity fe = FormEntity.find("SELECT f FROM FormEntity f, Woman w WHERE f.woman=w AND w.sectorId=?", (long) 120).first();
+        FormEntity fe = FormEntity.find("SELECT f FROM FormEntity f, Woman w WHERE f.woman=w AND w.sectorId=?", 120l).first();
         
         assertNotNull(newWoman1);
         assertEquals(newWoman1, oldWoman1);
