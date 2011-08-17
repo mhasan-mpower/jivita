@@ -19,7 +19,7 @@ public class Application extends Controller {
      */
     public static void index() {
     
-        // Application.update((long) 1, Status.COMPLETE, Outcome.NONE);
+        // Application.update(1l, Status.COMPLETE, Outcome.NONE);
         
         List<String> sectors = Woman.find("SELECT DISTINCT w.sectorId AS id FROM Woman w ORDER BY w.sectorId ASC").fetch();
         sectors.add(0, "All");

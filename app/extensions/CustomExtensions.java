@@ -12,25 +12,27 @@ import utils.*;
 public class CustomExtensions extends JavaExtensions {
     
     /**
-     * Gets jivita week from date.
+     * Convert to jivita week from date.
      * 
      * @param date
      *            the date
      * @return the jivita week week
      */
-    public static int getJWeek(Date date) {
+    public static int asJWeek(Date date) {
+    
         JWeek jw = JWeek.getInstance();
         return jw.getJWeek(date);
     }
     
     /**
-     * Gets date from jivita week.
+     * Convert to date from jivita week.
      * 
      * @param jweek
      *            the jivita week
      * @return the date from jivita week
      */
-    public static Date getDate(int jweek) {
+    public static Date asDateFromJWeek(int jweek) {
+    
         JWeek jw = JWeek.getInstance();
         return jw.getDate(jweek);
     }

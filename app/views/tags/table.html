@@ -1,7 +1,7 @@
 <table class="full">
         <thead>
         <tr>
-            <th>Date</th>
+            <th>JiVitA Week</th>
             <th>Sector ID</th>
             <th>HHID</th>
             <th>Name</th>
@@ -11,7 +11,7 @@
     <tbody>
         #{list items:_events, as:'event'}
         <tr>
-            <td>${event.start.format("dd MMMM yyyy")}</td>
+            <td>${event.start.asJWeek()}</td>
             <td class="aRight">${event.woman.sectorId}</td>
             <td class="aRight">${event.woman.hhId}</td>
             <td>${event.woman.name}</td>
